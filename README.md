@@ -7,8 +7,9 @@ Personal development preferences packaged as independent, instruction-only skill
 | Skill | Use when | Result |
 | --- | --- | --- |
 | [configure-project-tooling](skills/configure-project-tooling/SKILL.md) | Set up or align TypeScript lint, format and type checking, with optional Astro/React, editor and hook integrations | Necessary configuration changes and actual verification in the target |
+| [configure-agent-instructions](skills/configure-agent-instructions/SKILL.md) | Introduce or refine persistent AI-agent instructions and project document navigation | Customized AGENTS.md and only the supporting documents needed |
 
-Use the skill for initial setup or deliberate tooling changes. Preserve the target's instructions, conventions, user changes and completed evidence.
+Select only the skills needed for the current request. Installing every skill in a target project is optional. Each has its own completion conditions and bundles its required references/templates; none requires a sibling skill to be installed. Preserve the target's instructions, conventions, user changes and completed evidence. Persistent working rules belong in the target AGENTS.md rather than depending on a skill being invoked for every implementation task.
 
 ## Structure
 
@@ -25,19 +26,29 @@ skills/
       astro.md
       react.md
     templates/docs/tooling.md
+  configure-agent-instructions/
+    SKILL.md
+    references/
+      workflow.md
+      documents.md
+    templates/
+      AGENTS.md
+      README.md
+      docs/architecture.md
 ```
 
 ## Use from another project
 
-The `skills/configure-project-tooling/` directory contains the SKILL.md, references and templates needed to use the skill independently. Use the complete skill folder; the repository root provides repository documentation.
+This repository is a collection of independently usable skills. Each directory directly under `skills/` contains its own SKILL.md, references and templates. Use selected complete skill folders; the repository root is a catalog, not an installable skill.
 
-After publishing this repository, ask the Codex skill installer to install the desired folder from its Git repository URL and path. Specify `skills/configure-project-tooling`. Use the actual remote URL and an existing revision; no remote URL or committed revision is assumed here. Follow the current [official installation documentation](https://learn.chatgpt.com/docs/build-skills) for the installed host.
+After publishing this repository, ask the Codex skill installer to install the desired folder from its Git repository URL and path. Specify `skills/configure-project-tooling` or `skills/configure-agent-instructions`. Use the actual remote URL and an existing revision; no remote URL or committed revision is assumed here. Follow the current [official installation documentation](https://learn.chatgpt.com/docs/build-skills) for the installed host.
 
-For local use without publishing, copy the complete `configure-project-tooling` folder into the adopting project's `.agents/skills/` directory. Keep references and templates with each SKILL.md. Cloning this source repository elsewhere alone does not register the skills. Installation scope is a user or target-project decision; this repository does not automatically register skills or change other projects.
+For local use without publishing, copy the desired complete skill folders into the adopting project's `.agents/skills/` directory. Keep references and templates with each SKILL.md. Cloning this source repository elsewhere alone does not register the skills. Installation scope is a user or target-project decision; this repository does not automatically register skills or change other projects.
 
-Once installed, invoke the skill from the target project:
+Once installed, invoke the selected skill from the target project:
 
 - “Use $configure-project-tooling to align this project's lint, format and type checks. Preserve existing conventions and report exclusions.”
+- “Use $configure-agent-instructions to tailor AGENTS.md and document navigation to this repository.”
 
 In Codex CLI or the IDE extension, use `/skills` to inspect available skills. If discovery has not refreshed, restart Codex. See the [Agent Skills specification](https://agentskills.io/specification) for the instruction format. This repository remains Markdown-only; it contains no executable installer or plugin manifest.
 
@@ -47,11 +58,13 @@ In Codex CLI or the IDE extension, use `/skills` to inspect available skills. If
 
 After configuration and applicable target verification are complete, you may remove a project-local copy or registration of this skill. Preserve the resulting configuration, dependencies, lockfile, commands, project decisions and verification evidence. Removing skill instructions does not uninstall the development tools. Keep or reinstall the skill when another tooling change is needed; do not remove it automatically as part of setup.
 
+`configure-agent-instructions` produces persistent target instructions and navigation. The resulting AGENTS.md and documents remain useful after that skill is removed.
+
 Keep ongoing project rules and verification commands in the target's existing AGENTS.md, README or tooling document as appropriate. They must not require an installed setup skill or link to its project-local installation path. Installing a skill, applying its instructions and retaining its outputs are separate choices.
 
 ## Stable preferences and target decisions
 
-Tooling preferences include Flat Config, selected TypeScript checks, kebab-case source filename linting, separate Prettier formatting, local editor tools and optional hook/commit-check automation.
+Tooling preferences include Flat Config, selected TypeScript checks, kebab-case source filename linting, separate Prettier formatting, local editor tools and optional hook/commit-check automation. Workflow preferences include bounded work, Conventional Commits and concise verification evidence. Concrete task planning is separate from adopting instructions.
 
 No tool version or major release is mandated. Preserve the [version and support policy](skills/configure-project-tooling/references/adoption.md#version-and-support-policy): select maintained, secure, compatible stable combinations at adoption, preserve existing constraints and avoid unrelated upgrades. Deployment, branches, workspace names, package managers and commit scopes remain target decisions.
 
