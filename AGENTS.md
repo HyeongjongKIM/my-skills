@@ -1,0 +1,15 @@
+# Maintaining my-skills
+
+This file governs this Markdown-only skill source repository.
+
+Read README.md and the affected SKILL.md before changing guidance. Read `skills/configure-project-tooling/references/adoption.md` and `skills/configure-project-tooling/references/tooling.md` for tooling changes. Inspect staged and unstaged Git changes and preserve unrelated work.
+
+Provide English Markdown skill instructions, guides and document templates only. Each skill must have a SKILL.md with name/description frontmatter, a bounded purpose and completion conditions. Bundle required references/templates within that skill; do not require sibling skills or repository-root guides at runtime. Put configuration examples in fenced language blocks with the exact target filename, merge location, conditions and required packages. Do not retain executable configurations, hooks, manifests, lockfiles, example apps, installers, shared packages, verification scripts or speculative language directories. Git metadata and repository administration files such as .gitignore are exceptions.
+
+Do not install dependencies, run format/lint/type/test/build/hook/document verification commands, or create temporary projects or Git repositories here. Reading, searching, editing documents and researching official documentation are allowed. Actual configuration, installation and verification belong to the adopting project.
+
+Use supported public APIs and documented configuration. Consult current official documentation when changing dependency/API/configuration guidance or when support is uncertain; routine prose edits need no new research. Skill-local safeguards must remain sufficient for independent use. Preserve the version and support policy in `skills/configure-project-tooling/references/adoption.md`; never make historical versions permanent requirements. Do not force incompatible installations, depend on private internals, patch vendors arbitrarily or weaken checks to conceal errors. Stop unsupported dependent work, explain concrete constraints and supported alternatives, and continue independent authorized work.
+
+Keep documents coherent without per-edit dates, update notes or work diaries. Do not maintain reference-application provenance logs or require access to those repositories. Preserve meaningful task verification evidence. Do not copy substantial unlicensed material or select a distribution license for the owner.
+
+Preserve required SKILL.md, AGENTS.md and README.md filenames. Keep deployment, branches, workspace names, package managers and commit scopes as target decisions. Review prose and references through file reads/searches; do not claim executable verification. Report changed files, exclusions, unresolved decisions and verification limits. Do not commit, create remotes, push or deploy without explicit authorization.
