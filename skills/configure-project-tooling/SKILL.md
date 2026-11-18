@@ -5,7 +5,7 @@ description: Configure or align TypeScript linting, formatting and type checking
 
 # Configure project tooling
 
-Apply selected tooling preferences in the target project. Read [version and support policy](references/adoption.md) and [tooling examples](references/tooling.md) before changing configuration. Consult [official sources](references/official-sources.md) for the selected releases. Read [Astro](references/astro.md) or [React](references/react.md) only when present; read both for their composition.
+Apply selected tooling preferences in the target project. Read [version and support policy](references/adoption.md) and [tooling examples](references/tooling.md) before changing configuration. Consult [official sources](references/official-sources.md) for the selected releases. Read [Astro](references/astro.md) or [React](references/react.md) only when present; read both for their composition. When Tailwind CSS is present, read [Tailwind](references/tailwind.md) for canonical-class linting.
 
 ## Procedure
 

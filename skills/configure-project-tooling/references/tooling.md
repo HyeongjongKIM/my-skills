@@ -136,6 +136,10 @@ Keep generated/dependency paths in existing global ignores. Preserve framework-r
 
 Verify in the target that a kebab-case filename passes and a PascalCase/camelCase filename fails under the same parser and lint command. Include TSX and physical `.astro` files when used, a compound-suffix filename and actual route exceptions. Confirm these files are included in normal lint/CI scope. Treat this as diagnostics, not an automatic rename operation; review references when changing paths. Record exclusions and checks not run honestly.
 
+### Tailwind canonical classes
+
+When Tailwind CSS is present, follow [Tailwind tooling](tailwind.md) for `better-tailwindcss/enforce-canonical-classes`, the ESLint counterpart to `tailwindcss(suggestCanonicalClasses)`. Enable only with a supported version/parser combination and the actual stylesheet; Prettier class sorting alone does not enforce canonical names. Follow applicable target instructions for styling preferences.
+
 ## Prettier
 
 Target file: `.prettierrc.json`, or merge into the target's single existing supported Prettier config. Required local development package: `prettier`.

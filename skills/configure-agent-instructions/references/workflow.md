@@ -13,6 +13,7 @@ This guide owns the persistent working rules for the agent-instructions skill. T
 | Required | Preserve user work and use supported public APIs | All work |
 | Default preference | English documents | Preserve deliberate existing language conventions unless changing them is in scope |
 | Default preference | Conventional Commits | Scope vocabulary remains a target decision |
+| Default preference | Inline Tailwind utility classes | Only when the target uses Tailwind CSS; preserve deliberate existing styling decisions |
 | Default preference | Phased task queue with phase/task indexes | When concrete work is planned; preserve existing tracking and do not create empty phases |
 
 ## Before editing the target
@@ -26,6 +27,12 @@ Consult current official documentation when adding/upgrading dependencies, chang
 Make small changes within the selected scope. Use documented supported configurations. Do not depend on private APIs or undocumented internals, patch vendors arbitrarily, force incompatible installs or introduce workaround architectures to evade support constraints. Never weaken types, lint or tests, add broad ignores, unsafe casts or suppressions solely to conceal errors.
 
 If support cannot be established, stop the dependent work and report the exact constraint, official sources and supported alternatives. Continue independent authorized work. Preserve completed tasks and their evidence; specifications own requirements and acceptance, while task documents own execution plans and results.
+
+## Tailwind authoring preference
+
+When the target uses Tailwind CSS, put this ongoing preference in its applicable AGENTS.md. Prefer utilities directly in markup `class` or JSX `className`. Do not extract CSS classes or `@apply` solely to shorten attributes. Preserve deliberate existing abstractions; shared components, conditional class helpers and custom CSS remain appropriate when needed. Inline refers to where classes are authored, not a requirement to keep an attribute on one physical line or to use a `style` attribute.
+
+Keep conditional alternatives as complete utility strings rather than constructing fragments of class names. Detailed styling rationale may live in an existing project document linked from AGENTS.md, but the short preference must remain in AGENTS.md and work without an installed skill. Omit this guidance when Tailwind is absent; do not introduce Tailwind or alter lint configuration while adopting instructions.
 
 ## Verification and completion in the target
 

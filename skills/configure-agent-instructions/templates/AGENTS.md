@@ -30,6 +30,12 @@ Do not bulk-rename existing files or completed tasks. A scoped rename must updat
 
 Keep guidance current without dated update notes. Preserve meaningful task evidence. Statuses are TODO, IN_PROGRESS, BLOCKED and DONE; DONE requires acceptance and applicable verification. Record blockers with impact and next action, and approved deferrals with the maintainer's decision.
 
+## Styling
+
+Keep this section only when the target uses Tailwind CSS; merge it with existing styling instructions and preserve deliberate project decisions.
+
+Prefer Tailwind utility classes directly in markup `class` or JSX `className`. Do not extract CSS classes or `@apply` solely to shorten an attribute. Use shared components, conditional class helpers and custom CSS when needed. Keep conditional alternatives as complete utility strings rather than constructing class-name fragments. Attributes may span multiple lines; this preference does not mean using inline `style` attributes.
+
 ## Project decisions
 
 - Architecture/specification, when separate: {{ARCHITECTURE_AND_SPEC_PATHS_OR_NONE}}

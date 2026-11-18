@@ -26,6 +26,7 @@ skills/
       official-sources.md
       astro.md
       react.md
+      tailwind.md
     templates/docs/tooling.md
   configure-agent-instructions/
     SKILL.md
@@ -70,11 +71,13 @@ After configuration and applicable target verification are complete, you may rem
 
 `configure-agent-instructions` produces persistent target instructions and navigation. The resulting AGENTS.md and documents remain useful after that skill is removed. `plan-implementation` is reusable whenever new requirements need task plans; existing plans and evidence remain in the target independently of the skill.
 
+For Tailwind projects, `configure-agent-instructions` records the inline utility authoring preference in the target AGENTS.md. `configure-project-tooling` configures canonical-class linting separately. Either skill can be used independently; routine authoring follows the target instructions and installed tooling after setup skills are removed.
+
 Keep ongoing project rules and verification commands in the target's existing AGENTS.md, README or tooling document as appropriate. They must not require an installed setup skill or link to its project-local installation path. Installing a skill, applying its instructions and retaining its outputs are separate choices.
 
 ## Stable preferences and target decisions
 
-Tooling preferences include Flat Config, selected TypeScript checks, kebab-case source filename linting, separate Prettier formatting, local editor tools and optional hook/commit-check automation. Workflow preferences include bounded work, Conventional Commits and concise verification evidence. Concrete task planning is separate from adopting instructions.
+Tooling preferences include Flat Config, selected TypeScript checks, kebab-case source filename linting, separate Prettier formatting, local editor tools and optional hook/commit-check automation. Tailwind projects prefer inline utility classes and canonical-class linting where supported. Workflow preferences include bounded work, Conventional Commits and concise verification evidence. Concrete task planning is separate from adopting instructions.
 
 No tool version or major release is mandated. Preserve the [version and support policy](skills/configure-project-tooling/references/adoption.md#version-and-support-policy): select maintained, secure, compatible stable combinations at adoption, preserve existing constraints and avoid unrelated upgrades. Deployment, branches, workspace names, package managers and commit scopes remain target decisions.
 
