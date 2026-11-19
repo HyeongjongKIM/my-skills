@@ -46,6 +46,15 @@ Select maintained, secure, compatible stable versions; no package version or maj
 
 Use English for authored project documentation by default; preserve deliberate existing language conventions unless changing them is in scope.
 
+Keep document responsibilities distinct and limit documentation edits to what the authorized work needs:
+
+- Maintain README.md as the entry point describing the project's current state. Revise relevant content as features change; do not append task completion logs, test execution results or dated work histories.
+- Record implementation results and verification evidence in the corresponding task document; report directly when no task document exists.
+- Keep current progress and next actions in existing task management documents, linking detailed task evidence instead of copying it.
+- Update the current architecture document or existing README architecture section when architecture changes. Use ADRs when significant decisions need historical rationale, and clearly distinguish superseded decisions from the current design.
+- Never present previous implementations or discarded designs as current behavior. Preserve meaningful historical task evidence in its owning document.
+- Link existing information instead of duplicating it across documents. Do not repeat Git-tracked change details in separate Markdown logs.
+
 Do not bulk-rename existing files or completed tasks. A scoped rename must update affected imports, links, globs, scripts and routes, then run applicable checks.
 
 Keep guidance current without dated update notes. Preserve meaningful task evidence. Statuses are TODO, IN_PROGRESS, BLOCKED and DONE; DONE requires acceptance and applicable verification. Record blockers with impact and next action, and approved deferrals with the maintainer's decision.

@@ -28,6 +28,17 @@ Make small changes within the selected scope. Use documented supported configura
 
 If support cannot be established, stop the dependent work and report the exact constraint, official sources and supported alternatives. Continue independent authorized work. Preserve completed tasks and their evidence; specifications own requirements and acceptance, while task documents own execution plans and results.
 
+## Documentation management
+
+Keep document responsibilities distinct and make only the documentation changes needed for the authorized work.
+
+- Maintain README.md as the entry point describing the project's current state. Revise relevant content when features change; do not append task completion logs, test execution results or dated work histories.
+- Record task-specific implementation results and verification evidence in the corresponding task document. When no task document exists, report results directly rather than turning README.md into a task log.
+- Maintain current progress and next actions in existing task management documents; link detailed task evidence instead of copying it.
+- Reflect architecture changes in the current architecture document, or the existing README architecture section when no separate document is needed. Use ADRs when significant decisions need historical rationale; distinguish superseded decisions from the current design.
+- Do not describe previous implementations or discarded designs as current behavior. Preserve meaningful historical task evidence in its owning document.
+- Link information already owned by another document instead of duplicating it. Do not repeat Git-tracked change details in separate Markdown logs.
+
 ## Tailwind authoring preference
 
 When the target uses Tailwind CSS, put this ongoing preference in its applicable AGENTS.md. Prefer utilities directly in markup `class` or JSX `className`. Do not extract CSS classes or `@apply` solely to shorten attributes. Preserve deliberate existing abstractions; shared components, conditional class helpers and custom CSS remain appropriate when needed. Inline refers to where classes are authored, not a requirement to keep an attribute on one physical line or to use a `style` attribute.
