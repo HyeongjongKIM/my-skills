@@ -7,10 +7,10 @@ Personal development preferences packaged as independent, instruction-only skill
 | Skill | Use when | Result |
 | --- | --- | --- |
 | [configure-project-tooling](skills/configure-project-tooling/SKILL.md) | Set up or align TypeScript lint, format and type checking, with optional Astro/React, editor and hook integrations | Necessary configuration changes and actual verification in the target |
-| [configure-agent-instructions](skills/configure-agent-instructions/SKILL.md) | Introduce or refine persistent AI-agent instructions and project document navigation | Customized AGENTS.md and only the supporting documents needed |
-| [plan-implementation](skills/plan-implementation/SKILL.md) | Turn requirements into bounded phases and tasks | Dependencies, acceptance criteria, verification plans and consistent task indexes |
+| [configure-agent-instructions](skills/configure-agent-instructions/SKILL.md) | Introduce or refine persistent AI-agent instructions and project document navigation | Concise core AGENTS.md rules and navigation to existing procedure owners |
+| [plan-implementation](skills/plan-implementation/SKILL.md) | Turn requirements into bounded phases and tasks | Proportionate plans, stable task identity/history, dependency review and Planning Quality Gate |
 
-Select only the skills needed for the current request. Installing every skill in a target project is optional. Each has its own completion conditions and bundles its required references/templates; none requires a sibling skill to be installed. Preserve the target's instructions, conventions, user changes and completed evidence. Persistent working rules belong in the target AGENTS.md rather than depending on a skill being invoked for every implementation task.
+Select only the skills needed for the current request. Installing every skill in a target project is optional. Each has its own completion conditions and bundles its required references/templates; none requires a sibling skill to be installed. Preserve the target's instructions, conventions, user changes and completed evidence. Core persistent rules and mandatory procedure pointers belong in the target AGENTS.md. Detailed task lifecycle, gates and resume belong in existing execution/tracking documents, available without invoking a skill.
 
 ## Structure
 
@@ -88,7 +88,7 @@ Example Codex requests below assume the target chose `docs/playbooks/` and insta
 - Resume: “Resume using the existing task queue checkpoint and docs/playbooks/project-development.md. Inspect Git changes, preserve task IDs/history, reconcile stale evidence and continue the next eligible task.”
 - Revalidate a completed project: “Apply the Completion Gate in docs/playbooks/gates.md against the original requirements and approved changes, even if every task is DONE. Report missing behavior, failed/unrun checks and new work without resetting completed records.”
 
-Requirements map to bounded tasks or a small checklist, with observable acceptance and verification. Planning review checks coverage and consistency; completion review compares actual behavior/evidence with original requirements. Report COMPLETED, PARTIAL or BLOCKED; DONE tasks alone do not establish completion. Keep one checkpoint in existing tracking, preserve any ID that ever left TODO (or whose history is unknown), and use new IDs for additional scope. Required verification is never omitted to save tokens.
+Requirements map to bounded tasks or a small checklist, with observable acceptance and verification. Planning review checks coverage and consistency; completion review compares actual behavior/evidence with original requirements. Report COMPLETED, PARTIAL or BLOCKED; DONE tasks alone do not establish completion. Existing execution/tracking documents own lifecycle and continuity; every task ID is immutable from creation and never reused, including cancelled tasks. Required verification is never omitted to save tokens.
 
 The [scenario review](docs/workflow-scenarios.md) records normal, failure, interruption and resume walkthroughs. It is document review, not a claim of executed agent or application tests.
 
@@ -100,7 +100,7 @@ The design selectively draws on [pstack](https://github.com/cursor/plugins/tree/
 
 After configuration and applicable target verification are complete, you may remove a project-local copy or registration of this skill. Preserve the resulting configuration, dependencies, lockfile, commands, project decisions and verification evidence. Removing skill instructions does not uninstall the development tools. Keep or reinstall the skill when another tooling change is needed; do not remove it automatically as part of setup.
 
-`configure-agent-instructions` produces persistent target instructions and navigation. The resulting AGENTS.md and documents remain useful after that skill is removed. `plan-implementation` is reusable whenever new requirements need task plans; existing plans and evidence remain in the target independently of the skill.
+`configure-agent-instructions` produces core target instructions and navigation, preserving detailed safeguards in their existing procedure owners. The resulting AGENTS.md and documents remain useful after that skill is removed. `plan-implementation` is reusable whenever new requirements need task plans; existing plans and evidence remain in the target independently of the skill.
 
 For Tailwind projects, `configure-agent-instructions` records the inline utility authoring preference in the target AGENTS.md. `configure-project-tooling` configures canonical-class linting separately. Either skill can be used independently; routine authoring follows the target instructions and installed tooling after setup skills are removed.
 

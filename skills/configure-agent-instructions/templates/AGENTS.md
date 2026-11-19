@@ -1,77 +1,37 @@
 # Working on {{PROJECT_NAME}}
 
-Read README.md and the selected task/specification when present before editing. If there is no task document, use the authorized request and its acceptance criteria as the task scope. Read architecture/tooling documents when present and relevant. Resolve all placeholders and remove unused document links when adopting this template.
+## Project overview & architecture
 
-## Workflow
+{{PROJECT_PURPOSE_AND_CORE_STACK}}
 
-Task tracking: {{TASK_QUEUE_PATH_OR_EXISTING_TRACKER_OR_NO_PLANNED_WORK}}
+{{KEY_DIRECTORIES_AND_ARCHITECTURE_BOUNDARIES}}
 
-1. Inspect staged/unstaged Git changes and applicable nested instructions. Preserve unrelated work and completed task evidence.
-2. Read the selected task or authorized request, scope and acceptance criteria. When phased tracking exists, select the earliest unfinished phase and earliest task whose dependencies are DONE; do not bypass blocked task or phase prerequisites. If that phase has no eligible work, continue independent authorized work in another phase only with all its prerequisites satisfied.
-3. Apply the support rules below when the change requires external documentation. Implement only the selected scope; avoid unrelated redesigns, features and formatting.
-4. Run {{APPLICABLE_VERIFICATION_COMMANDS}} for the affected behavior. Record actual commands/results and reasons for checks not run; distinguish existing failures from regressions. Build success alone does not prove runtime behavior.
-5. Update existing task evidence/status and applicable phase/queue indexes; otherwise report results directly. Report changed files and purpose, verification, exclusions, blockers and the next action briefly; link existing evidence instead of repeating it.
+Read README.md and relevant requirements before editing. Specification / architecture: {{EXISTING_DOCUMENT_LINKS_OR_README_SECTIONS}}.
 
-## Planning and completion gates
+## Development workflow
 
-Use one agent sequentially; a selected playbook supplies the sequence and skills supply bounded methods. For small work, use a brief checklist instead of creating phases or another tracker.
+Follow applicable nested instructions and {{EXISTING_PLAYBOOK_OR_TASK_MANAGEMENT_LINKS_OR_REQUEST_CHECKLIST}} for planning, task identity/history, dependencies, execution, completion and resume. These procedures are mandatory when applicable; do not create a second tracker.
 
-Before implementation, compare requirements with tasks/checklist: functional and relevant nonfunctional coverage, architecture/data flow, API/UI/state/failure paths, feasibility, risks, dependencies/cycles/order, duplicate/conflicting scope and observable acceptance. Record this Planning Quality Gate in existing tracking or report directly. Report contradictions by location, cause, impact and resolution; block affected tasks while continuing independent authorized work.
+Work within the authorized scope and satisfied prerequisites. Inspect staged/unstaged Git changes; preserve user changes, existing behavior outside scope and completed evidence. If a material plan contradiction, missing prerequisite or infeasible requirement appears, stop affected work, report evidence, impact and a proposed correction, and obtain user approval before proceeding. Continue independent authorized work.
 
-Never change a task ID that has ever left TODO, including one later returned to TODO. Preserve IDs when history is unknown. Add collision-free IDs without renumbering; retain status transitions/reasons, split/merge/supersession records, references and evidence. Superseded work does not automatically satisfy dependencies or become DONE. Add new linked tasks for additional scope after DONE; change an inaccurate status only with evidence, preserving its history.
+## Coding standards
 
-When omissions, constraints, design changes or failed checks appear, compare the cause/impact against specifications/tasks, decide corrective or new work, update coverage/dependencies/acceptance with history intact and recheck affected planning assumptions. Obtain user decisions for material requirement/architecture changes outside authorization; handle safe refinements within scope.
+{{PROJECT_WIDE_CODING_RULES_AND_GENERATED_PATHS}}
 
-For repeated mistakes, consider recurrence, impact and upkeep. Prefer architecture/API prevention, static checks, behavioral tests, runtime checks, then prose for remaining judgment. Reuse existing safeguards and verify selected automation against valid and invalid cases in the target; do not add a rule for every mistake or leave automatable recurring rules only in prose.
+Use supported public APIs and documented configuration. Consult current official version-appropriate documentation for dependency, configuration or external API changes and uncertain support. Preserve compatible project constraints; do not force installations, patch vendors arbitrarily or weaken checks to conceal errors. Stop unsupported dependent work and report constraints and supported alternatives.
 
-Before claiming completion, perform a separate Completion Gate against original requirements and approved changes, actual behavior, acceptance, mandatory verification, missed scope and unresolved material issues. DONE tasks alone are insufficient. Report COMPLETED only with requirements and mandatory checks satisfied; PARTIAL for incomplete implementation/verification; BLOCKED when a material issue prevents progress. Name the agreed scope, explicit deferrals, unexecuted/failed checks, risks and next actions. Never present unrun checks as passed or a plan as implemented.
+Detailed tooling / runtime / package-manager / commit conventions: {{EXISTING_TOOLING_OR_README_LINK}}.
 
-## Context and resume
+## Verification
 
-Read only relevant documents and selected playbook/skill references. Reuse findings until changed code, versions or assumptions require rechecking affected areas and integration boundaries. Preserve required verification regardless of token cost.
+{{ACTUAL_APPLICABLE_COMMANDS_WITH_WORKING_DIRECTORY_OR_EXPLICIT_GAPS}}
 
-For long work, keep current phase/task, next eligible action, decision/blocker links, incomplete changes and verification links in one checkpoint within existing tracking. Keep detailed evidence in tasks. On resume, read that checkpoint and applicable instructions/relevant tasks, inspect Git changes and reconcile stale evidence before continuing. Do not create duplicate status files or reset completed records.
+Verify affected behavior and required checks before claiming completion. A build or DONE queue alone is insufficient. Record actual results and not-run reasons in existing task evidence, or report directly when no task document exists. Follow the linked execution procedures for detailed gates and evidence; never claim unexecuted checks passed.
 
-## Support and dependency changes
+## Documentation
 
-Consult current official documentation when adding/upgrading dependencies, changing tool/framework configuration, introducing or changing external API use, or when support/behavior is uncertain. Check documentation for the installed or selected version; for dependency changes also check maintenance/security, engines and peers. Reuse findings while their versions and applicability remain valid. Routine prose or local application changes need no new research unless they raise one of these questions.
+README owns current project state and navigation; specifications own requirements and acceptance; architecture owns current boundaries and decisions. Task documents own execution plans, history and evidence; existing tracking owns progress and next actions. Update the relevant owner and link it instead of duplicating content or creating work diaries. Keep simple projects in existing documents.
 
-Use supported public APIs and documented configuration. Do not rely on private internals, arbitrarily patch dependencies, force incompatible installations or bypass engine/peer checks. Never weaken types, lint or tests, or add broad ignores, unsafe casts or suppressions solely to hide errors.
+## Security & authorization
 
-If support cannot be established, stop the dependent change, record the exact constraint and supported alternatives, and continue independent authorized work. Record decision-relevant official links and versions once in the task or tooling document. Keep documented support and actual local/runtime results distinct.
-
-Select maintained, secure, compatible stable versions; no package version or major is mandated by this standard. Preserve existing constraints and avoid unrelated upgrades. Use local tools and retain the target lockfile for reproducibility.
-
-## Documents
-
-Use English for authored project documentation by default; preserve deliberate existing language conventions unless changing them is in scope.
-
-Keep document responsibilities distinct and limit documentation edits to what the authorized work needs:
-
-- Maintain README.md as the entry point describing the project's current state. Revise relevant content as features change; do not append task completion logs, test execution results or dated work histories.
-- Record implementation results and verification evidence in the corresponding task document; report directly when no task document exists.
-- Keep current progress and next actions in existing task management documents, linking detailed task evidence instead of copying it.
-- Update the current architecture document or existing README architecture section when architecture changes. Use ADRs when significant decisions need historical rationale, and clearly distinguish superseded decisions from the current design.
-- Never present previous implementations or discarded designs as current behavior. Preserve meaningful historical task evidence in its owning document.
-- Link existing information instead of duplicating it across documents. Do not repeat Git-tracked change details in separate Markdown logs.
-
-Do not bulk-rename existing files or completed tasks. A scoped rename must update affected imports, links, globs, scripts and routes, then run applicable checks.
-
-Keep guidance current without dated update notes. Preserve meaningful task evidence. Statuses are TODO, IN_PROGRESS, BLOCKED and DONE; DONE requires acceptance and applicable verification. Record blockers with impact and next action, and approved deferrals with the maintainer's decision.
-
-## Styling
-
-Keep this section only when the target uses Tailwind CSS; merge it with existing styling instructions and preserve deliberate project decisions.
-
-Prefer Tailwind utility classes directly in markup `class` or JSX `className`. Do not extract CSS classes or `@apply` solely to shorten an attribute. Use shared components, conditional class helpers and custom CSS when needed. Keep conditional alternatives as complete utility strings rather than constructing class-name fragments. Attributes may span multiple lines; this preference does not mean using inline `style` attributes.
-
-## Project decisions
-
-- Architecture/specification, when separate: {{ARCHITECTURE_AND_SPEC_PATHS_OR_NONE}}
-- Runtime and package manager: {{NODE_VERSION_AND_PACKAGE_MANAGER_VERSION}}
-- Commit policy: {{CONVENTIONAL_COMMITS_AND_SCOPE_POLICY}}
-- Optional hooks/CI: {{HOOK_AND_CI_POLICY_OR_NONE}}
-- Generated paths to avoid editing: {{GENERATED_PATHS}}
-- Standard reference: {{SOURCE_SKILL_AND_REPOSITORY_FULL_SHA_OR_UNCOMMITTED_LOCAL_PATH}}
-
-Do not commit secrets or overwrite existing tasks/specifications. Do not commit, create remotes, push, deploy or change external systems without authorization.
+Protect secrets and user data; do not expose them in documents, logs or commits. Do not overwrite existing specifications or task history. Do not commit, create remotes, push, deploy or change external systems without authorization.

@@ -23,6 +23,24 @@ Use existing specification anchors or stable requirement labels. Replace this ex
 - Decisions / blockers / verification: {{LINKS_OR_NONE}}
 - Completion Gate: {{NOT_ASSESSED_OR_COMPLETED_PARTIAL_BLOCKED_WITH_SCOPE_AND_EVIDENCE}}
 
-Queue status describes execution progress, not project completion. Compare original requirements and approved changes with actual behavior and required verification before declaring COMPLETED. Record missing implementation/checks as PARTIAL, or a material constraint preventing progress as BLOCKED. Preserve deferred scope explicitly. Keep detailed evidence in tasks; update this checkpoint instead of creating another status file.
+## Execution contract
 
-Never change an ID that has ever left TODO, even after returning to TODO. Preserve existing IDs if history is unknown; allocate new IDs without renumbering. Retain split/merged task records and links. Execution order follows dependencies, not ID sorting.
+Use the project's existing execution/playbook and task-management procedures as the primary owner: {{EXISTING_PROCEDURE_LINKS_OR_CONTRACT_BELOW}}. If those procedures cover the following safeguards, keep their links and omit duplicate details below. Otherwise merge missing rules here. This contract remains available to implementers without an installed planning skill; it does not authorize implementation beyond the user's request.
+
+### Identity and lifecycle
+
+Every task ID is immutable from creation and must never be changed or reused, including TODO and cancelled tasks. Allocate collision-free IDs without renumbering. Keep status transitions and reasons in the original task record. Preserve the existing status vocabulary; record cancellation/supersession as a disposition when no corresponding status exists. Cancellation, splitting, merging or replacement retains original IDs, history, evidence and predecessor/successor links. Update dependents to actual replacement work; cancellation/supersession never fabricates DONE or satisfies prerequisites. New scope after DONE gets linked new IDs; evidence-based status corrections retain historical results. Execution order follows dependencies, not ID sorting.
+
+### Feedback and synchronization
+
+Record evidence/status in the task first, then synchronize affected phase and queue indexes. Do not mark incomplete work DONE. For material contradictions, missing prerequisites or infeasible requirements, stop affected work; report location, evidence, impact and a proposed correction and obtain user approval before proceeding. Revalidate affected requirement coverage, dependencies and acceptance after changes. Independent authorized work with satisfied prerequisites can continue.
+
+### Verification and Completion Gate
+
+Verify affected behavior using actual target commands and working directories. Tasks own actual commands, observations, limitations and not-run reasons; link them here instead of copying results. Distinguish existing failures from regressions. A build or empty test suite alone is not behavioral evidence.
+
+Queue status describes execution progress, not requirement completion. Re-read original requirements and approved changes independently of DONE tasks; compare actual behavior, acceptance and required verification, including omitted requirements and unresolved material issues. Add missing work with new IDs. Report COMPLETED only when requested requirements and mandatory verification are satisfied, PARTIAL for missing implementation or failed/unrun/stale required checks, or BLOCKED when a material constraint prevents progress. Name agreed scope, explicit deferrals, evidence, risks and next action. Deferrals do not imply delivery; planning completion is separate from implementation completion.
+
+### Checkpoint and resume
+
+For long work, update the single checkpoint above with current phase/task, next eligible action, decision/blocker and verification links, incomplete changes and outstanding checks. Keep detailed results/history in tasks. On resume read applicable instructions, checkpoint and relevant specification/tasks, inspect staged/unstaged Git changes, reconcile changed dependencies/decisions and stale evidence, then select eligible work. Preserve records; do not create a second tracker or repeat whole-project analysis by default.

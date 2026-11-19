@@ -48,4 +48,4 @@ Refer to verification above rather than repeating results in a second report.
 
 {{MEANINGFUL_STATUS_TRANSITIONS_WITH_REASONS_OR_NEW_TASK_WITH_NO_TRANSITIONS}}
 
-An ID becomes immutable the first time status leaves TODO, even if status later returns to TODO. Preserve it when history is unknown. Retain prior evidence; record split/merge/supersession links here without deleting the original record or inventing completion. Additional requirements normally receive new IDs linked to this task.
+Follow the queue's identity/lifecycle policy or its linked existing task-management procedure. Record status changes with reasons and cancellation/split/merge/replacement references here; preserve the original record and evidence. Identity policy: {{ACTUAL_QUEUE_OR_EXISTING_POLICY_LINK}}.
