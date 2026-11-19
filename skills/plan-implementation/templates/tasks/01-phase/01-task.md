@@ -3,6 +3,7 @@
 Status: TODO
 Dependencies: {{FULL_TASK_PATHS_OR_NONE}}
 Specification: {{SPECIFICATION_PATH_AND_SECTION_OR_ACCEPTANCE_BELOW}}
+Requirement references: {{REQUIREMENT_IDS_OR_SOURCE_ANCHORS}}
 
 ## Goal and scope
 
@@ -42,3 +43,9 @@ Approved deferrals: {{MAINTAINER_DECISION_OR_LINK_OR_NONE}}
 {{CHANGED_FILES_AND_PURPOSE_AND_NEXT_TASK}}
 
 Refer to verification above rather than repeating results in a second report.
+
+## Identity and status history
+
+{{MEANINGFUL_STATUS_TRANSITIONS_WITH_REASONS_OR_NEW_TASK_WITH_NO_TRANSITIONS}}
+
+An ID becomes immutable the first time status leaves TODO, even if status later returns to TODO. Preserve it when history is unknown. Retain prior evidence; record split/merge/supersession links here without deleting the original record or inventing completion. Additional requirements normally receive new IDs linked to this task.
