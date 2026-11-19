@@ -12,6 +12,26 @@ Task tracking: {{TASK_QUEUE_PATH_OR_EXISTING_TRACKER_OR_NO_PLANNED_WORK}}
 4. Run {{APPLICABLE_VERIFICATION_COMMANDS}} for the affected behavior. Record actual commands/results and reasons for checks not run; distinguish existing failures from regressions. Build success alone does not prove runtime behavior.
 5. Update existing task evidence/status and applicable phase/queue indexes; otherwise report results directly. Report changed files and purpose, verification, exclusions, blockers and the next action briefly; link existing evidence instead of repeating it.
 
+## Planning and completion gates
+
+Use one agent sequentially; a selected playbook supplies the sequence and skills supply bounded methods. For small work, use a brief checklist instead of creating phases or another tracker.
+
+Before implementation, compare requirements with tasks/checklist: functional and relevant nonfunctional coverage, architecture/data flow, API/UI/state/failure paths, feasibility, risks, dependencies/cycles/order, duplicate/conflicting scope and observable acceptance. Record this Planning Quality Gate in existing tracking or report directly. Report contradictions by location, cause, impact and resolution; block affected tasks while continuing independent authorized work.
+
+Never change a task ID that has ever left TODO, including one later returned to TODO. Preserve IDs when history is unknown. Add collision-free IDs without renumbering; retain status transitions/reasons, split/merge/supersession records, references and evidence. Superseded work does not automatically satisfy dependencies or become DONE. Add new linked tasks for additional scope after DONE; change an inaccurate status only with evidence, preserving its history.
+
+When omissions, constraints, design changes or failed checks appear, compare the cause/impact against specifications/tasks, decide corrective or new work, update coverage/dependencies/acceptance with history intact and recheck affected planning assumptions. Obtain user decisions for material requirement/architecture changes outside authorization; handle safe refinements within scope.
+
+For repeated mistakes, consider recurrence, impact and upkeep. Prefer architecture/API prevention, static checks, behavioral tests, runtime checks, then prose for remaining judgment. Reuse existing safeguards and verify selected automation against valid and invalid cases in the target; do not add a rule for every mistake or leave automatable recurring rules only in prose.
+
+Before claiming completion, perform a separate Completion Gate against original requirements and approved changes, actual behavior, acceptance, mandatory verification, missed scope and unresolved material issues. DONE tasks alone are insufficient. Report COMPLETED only with requirements and mandatory checks satisfied; PARTIAL for incomplete implementation/verification; BLOCKED when a material issue prevents progress. Name the agreed scope, explicit deferrals, unexecuted/failed checks, risks and next actions. Never present unrun checks as passed or a plan as implemented.
+
+## Context and resume
+
+Read only relevant documents and selected playbook/skill references. Reuse findings until changed code, versions or assumptions require rechecking affected areas and integration boundaries. Preserve required verification regardless of token cost.
+
+For long work, keep current phase/task, next eligible action, decision/blocker links, incomplete changes and verification links in one checkpoint within existing tracking. Keep detailed evidence in tasks. On resume, read that checkpoint and applicable instructions/relevant tasks, inspect Git changes and reconcile stale evidence before continuing. Do not create duplicate status files or reset completed records.
+
 ## Support and dependency changes
 
 Consult current official documentation when adding/upgrading dependencies, changing tool/framework configuration, introducing or changing external API use, or when support/behavior is uncertain. Check documentation for the installed or selected version; for dependency changes also check maintenance/security, engines and peers. Reuse findings while their versions and applicability remain valid. Routine prose or local application changes need no new research unless they raise one of these questions.
