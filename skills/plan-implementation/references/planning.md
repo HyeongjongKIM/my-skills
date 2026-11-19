@@ -14,7 +14,7 @@ Specifications define requirements and acceptance criteria. Link them from tasks
 
 Statuses are TODO, IN_PROGRESS, BLOCKED and DONE. New implementation plans start TODO unless a concrete blocker applies. Planning a task is not implementing it. Preserve existing statuses and evidence unless available facts justify a correction; do not mark work DONE without acceptance and applicable verification. Approved deferrals remain explicit and never silently satisfy a blocked dependency.
 
-Keep task, phase and queue statuses consistent. Select the earliest unfinished phase and earliest task with satisfied dependencies; independent work may proceed without bypassing a blocked prerequisite. A blocker records its exact constraint, impact and next action. Do not rewrite completed evidence to match a new plan.
+Keep task, phase and queue statuses consistent. Select the earliest unfinished phase and earliest task with satisfied dependencies; if it has no eligible work, independent work in another phase may proceed only with all task and phase prerequisites satisfied. A blocker records its exact constraint, impact and next action. Do not rewrite completed evidence to match a new plan.
 
 Plan verification appropriate to affected behavior using actual target commands and working directories. Identify absent suites, unavailable environments and unresolved commands explicitly. Distinguish expected results from observed evidence; a build is not proof of runtime behavior and an empty suite is not coverage. Do not execute application verification during a planning-only request.
 

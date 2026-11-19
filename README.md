@@ -17,6 +17,17 @@ Select only the skills needed for the current request. Installing every skill in
 ```text
 AGENTS.md
 README.md
+playbooks/
+  README.md
+  gates.md
+  project-development.md
+  feature-development.md
+  bug-fix.md
+  refactoring.md
+docs/
+  harness/codex.md
+  harness/claude-code.md
+  workflow-scenarios.md
 skills/
   configure-project-tooling/
     SKILL.md
@@ -62,6 +73,26 @@ Once installed, invoke the selected skill from the target project:
 - “Use $plan-implementation to turn these requirements into phased tasks without implementing them.”
 
 In Codex CLI or the IDE extension, use `/skills` to inspect available skills. If discovery has not refreshed, restart Codex. See the [Agent Skills specification](https://agentskills.io/specification) for the instruction format. This repository remains Markdown-only; it contains no executable installer or plugin manifest.
+
+## Execute a playbook
+
+Codex is the default host; see [Codex](docs/harness/codex.md) and [Claude Code](docs/harness/claude-code.md) for actual discovery/invocation differences. A skill supplies a bounded method; a playbook orders execution and gates; one agent runs it sequentially. Existing skills work without playbooks, and playbooks can use target instructions when optional skills are absent. Planning-only skill invocation never authorizes implementation by itself.
+
+Choose [project-development](playbooks/project-development.md), [feature-development](playbooks/feature-development.md), [bug-fix](playbooks/bug-fix.md) or [refactoring](playbooks/refactoring.md). Read only the selected procedure and its [gate criteria](playbooks/gates.md), then relevant skill references as needed. For another project, copy the complete `playbooks/` directory to a chosen location such as `docs/playbooks/`, or provide an accessible source path. This is Markdown navigation, not automatic registration; keep relative links intact. See [playbook adoption](playbooks/README.md).
+
+Example Codex requests below assume the target chose `docs/playbooks/` and installed any named skill:
+
+- New project: “Read docs/playbooks/project-development.md. Analyze these requirements, use $plan-implementation to plan them, review the Planning Quality Gate, then implement and verify the authorized scope.”
+- Feature: “Follow docs/playbooks/feature-development.md to add this feature. Preserve existing contracts and include relevant regression evidence.”
+- Bug: “Follow docs/playbooks/bug-fix.md for this reproduction. Keep the procedure proportionate and verify the correction.”
+- Resume: “Resume using the existing task queue checkpoint and docs/playbooks/project-development.md. Inspect Git changes, preserve task IDs/history, reconcile stale evidence and continue the next eligible task.”
+- Revalidate a completed project: “Apply the Completion Gate in docs/playbooks/gates.md against the original requirements and approved changes, even if every task is DONE. Report missing behavior, failed/unrun checks and new work without resetting completed records.”
+
+Requirements map to bounded tasks or a small checklist, with observable acceptance and verification. Planning review checks coverage and consistency; completion review compares actual behavior/evidence with original requirements. Report COMPLETED, PARTIAL or BLOCKED; DONE tasks alone do not establish completion. Keep one checkpoint in existing tracking, preserve any ID that ever left TODO (or whose history is unknown), and use new IDs for additional scope. Required verification is never omitted to save tokens.
+
+The [scenario review](docs/workflow-scenarios.md) records normal, failure, interruption and resume walkthroughs. It is document review, not a claim of executed agent or application tests.
+
+The design selectively draws on [pstack](https://github.com/cursor/plugins/tree/main/pstack) for verifiable work units and structural learning, and the [BigGo discussion summary](https://finance.biggo.com/podcast/5a6129233f489c0e) for investing in architecture and verification before prose. This repository applies those ideas to a single-agent Markdown workflow; it does not adopt their orchestration, API bans, tooling stack or reported performance figures. External pages are background reading, not runtime prerequisites.
 
 ## When to keep a skill installed
 

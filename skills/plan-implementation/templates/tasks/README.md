@@ -1,6 +1,6 @@
 # Phase queue
 
-Use this index only when phased tracking is selected. Read the earliest phase that is not DONE and select its earliest task with completed dependencies. Do not advance past a blocked dependency or phase. Preserve completed phases and evidence.
+Use this index only when phased tracking is selected. Read the earliest phase that is not DONE and select its earliest task with completed dependencies. Do not bypass a blocked task or phase prerequisite. If this phase has no eligible work, an independent task in another phase may proceed only when all its task and phase prerequisites are satisfied. Preserve completed phases and evidence.
 
 | Phase                                     | Goal     | Dependencies             | Status |
 | ----------------------------------------- | -------- | ------------------------ | ------ |

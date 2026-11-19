@@ -7,7 +7,7 @@ Read README.md and the selected task/specification when present before editing. 
 Task tracking: {{TASK_QUEUE_PATH_OR_EXISTING_TRACKER_OR_NO_PLANNED_WORK}}
 
 1. Inspect staged/unstaged Git changes and applicable nested instructions. Preserve unrelated work and completed task evidence.
-2. Read the selected task or authorized request, scope and acceptance criteria. When phased tracking exists, select the earliest unfinished phase and earliest task whose dependencies are DONE; do not bypass blocked dependencies.
+2. Read the selected task or authorized request, scope and acceptance criteria. When phased tracking exists, select the earliest unfinished phase and earliest task whose dependencies are DONE; do not bypass blocked task or phase prerequisites. If that phase has no eligible work, continue independent authorized work in another phase only with all its prerequisites satisfied.
 3. Apply the support rules below when the change requires external documentation. Implement only the selected scope; avoid unrelated redesigns, features and formatting.
 4. Run {{APPLICABLE_VERIFICATION_COMMANDS}} for the affected behavior. Record actual commands/results and reasons for checks not run; distinguish existing failures from regressions. Build success alone does not prove runtime behavior.
 5. Update existing task evidence/status and applicable phase/queue indexes; otherwise report results directly. Report changed files and purpose, verification, exclusions, blockers and the next action briefly; link existing evidence instead of repeating it.
