@@ -2,7 +2,7 @@
 
 Apply only when the target uses Tailwind CSS. Follow [adoption](adoption.md) and preserve existing parser, formatting and framework configuration. This reference does not introduce Tailwind into an unrelated project.
 
-Follow the target's applicable AGENTS.md for ongoing styling preferences. This tooling integration configures canonical-class checks and does not create authoring instructions or require another skill. Account for [Tailwind source detection](https://tailwindcss.com/docs/detecting-classes-in-source-files) when reviewing class-helper coverage.
+Follow the target's applicable project instructions for ongoing styling preferences. This tooling integration configures canonical-class checks and does not create authoring instructions or require another skill. Account for [Tailwind source detection](https://tailwindcss.com/docs/detecting-classes-in-source-files) when reviewing class-helper coverage.
 
 ## Canonical-class linting
 

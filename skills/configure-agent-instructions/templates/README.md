@@ -19,7 +19,7 @@ Use {{ACTUAL_RUNTIME_AND_TOOL_VERSIONS_WHEN_APPLICABLE}}. Setup: {{ACTUAL_SETUP_
 
 Merge navigation into existing sections; keep only links to actual documents. Do not create documents merely to fill this list.
 
-- [Agent instructions](AGENTS.md): core project rules and procedure navigation.
+- [Agent instructions]({{ACTIVE_PROJECT_INSTRUCTIONS_PATH}}): core project rules and procedure navigation.
 - [Architecture](docs/architecture.md): optional; remove this link and describe simple boundaries here when no separate document is needed.
 - Tooling: {{TOOLING_DOCUMENT_PATH_OR_SETTINGS_AND_COMMANDS_HERE}}. Link an existing document when useful; creating one is optional.
 - Specification: {{SPECIFICATION_PATH_OR_TASK_ACCEPTANCE_SECTION}}

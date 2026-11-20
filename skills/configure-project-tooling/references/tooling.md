@@ -21,18 +21,19 @@ Strict checking is the default preference. `noEmit` applies when a bundler/frame
 
 Default: Flat Config, TypeScript recommended rules and the explicit checks below. Required local development packages for this recipe: `eslint`, `@eslint/js`, `typescript`, `typescript-eslint` and `eslint-config-prettier`. Add `globals` only when using its runtime-specific sets.
 
-Target file: root `eslint.config.mjs` (or the target's recognized Flat Config file). Merge the fragments in order with existing presets; do not create duplicate configs. The example uses [documented Flat Config scoping](https://eslint.org/docs/latest/use/configure/configuration-files) and the [TypeScript recommended preset](https://typescript-eslint.io/users/configs/), with selected typed rules rather than the entire recommendedTypeChecked preset.
+Target file: root `eslint.config.mjs` (or the target's recognized Flat Config file). Merge the fragments in order with existing presets and keep checks already configured for other file types. This example requires an ESLint release supporting `defineConfig` and scoped `extends` from `eslint/config`. For an existing supported release with a different composition API, follow its documented equivalent and keep the same file scopes. The TypeScript recommended preset includes TypeScript-specific rules such as `no-require-imports`, so scope it to TypeScript files to avoid imposing it on existing JavaScript and CommonJS tooling. [ESLint Flat Config](https://eslint.org/docs/latest/use/configure/configuration-files#extending-configurations), [typescript-eslint setup](https://typescript-eslint.io/getting-started/), [no-require-imports](https://typescript-eslint.io/rules/no-require-imports/).
 
 ```js
 import js from '@eslint/js';
+import { defineConfig } from 'eslint/config';
 import ts from 'typescript-eslint';
 import formatting from 'eslint-config-prettier';
 import { dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-const typedFiles = ['**/*.{ts,tsx,mts,cts}'];
+const typescriptFiles = ['**/*.{ts,tsx,mts,cts}'];
 
-export default [
+export default defineConfig([
   {
     ignores: [
       '**/node_modules/**',
@@ -41,16 +42,24 @@ export default [
       '**/.husky/_/**',
     ],
   },
-  js.configs.recommended,
-  ...ts.configs.recommended,
   {
+    files: ['**/*.{js,cjs,mjs,jsx,ts,tsx,mts,cts}'],
+    extends: [js.configs.recommended],
     rules: {
       eqeqeq: 'error',
       'no-duplicate-imports': ['error', { allowSeparateTypeImports: true }],
     },
   },
   {
-    files: typedFiles,
+    files: ['**/*.jsx'],
+    languageOptions: { parser: ts.parser },
+  },
+  {
+    files: typescriptFiles,
+    extends: [ts.configs.recommended],
+  },
+  {
+    files: typescriptFiles,
     languageOptions: {
       parserOptions: {
         projectService: true,
@@ -75,10 +84,10 @@ export default [
   },
   // Insert selected framework presets and scoped overrides before formatting.
   formatting,
-];
+]);
 ```
 
-The ignore-only object supplies global ignores. Merge actual generated output paths; do not exclude authored files to hide diagnostics. Scope Node/browser globals to real execution environments, including configuration files and tests; do not assume all TypeScript runs in a browser. The example does not declare those environments for an unknown target.
+The ignore-only object supplies global ignores. Merge actual generated output paths and keep authored files in scope. The JSX entry retains JSX-aware parsing without applying the TypeScript rules to JavaScript. Keep an existing compatible JSX parser when present. Scope Node/browser globals to real execution environments, including configuration files and tests. In mixed projects, verify a representative JavaScript or CommonJS config and a TypeScript file in the same lint run, plus JSX/TSX when used. [TypeScript parser JSX support](https://typescript-eslint.io/packages/parser/#jsx), [ESLint language options](https://eslint.org/docs/latest/use/configure/language-options).
 
 | Rule / group | Purpose | Default severity |
 | --- | --- | --- |
@@ -99,7 +108,7 @@ These are explicit default severities, not permission to lower an existing proje
 
 [Project service](https://typescript-eslint.io/getting-started/typed-linting/) supplies type information from each file's nearest tsconfig. `tsconfigRootDir` is the directory of the target config; adapt it if configuration lives elsewhere. Cover all typed-linted source and test files in real tsconfig projects, including workspace packages and referenced projects. Verify the selected service's discovery behavior; a root solution config alone does not prove coverage.
 
-Out-of-project tool/config files require a deliberate choice: include them in an appropriate real project, use the documented narrowly bounded `allowDefaultProject` facility when suitable, or scope non-typed lint to those specific files. Do not use broad default-project globs, disable typed rules on application files or blanket-ignore errors to make lint pass. Follow [typed-lint troubleshooting](https://typescript-eslint.io/troubleshooting/typed-linting/). Ordinary TS coverage does not prove typed lint inside framework templates.
+Out-of-project tool/config files require a deliberate choice: include them in an appropriate real project, use a narrowly bounded `allowDefaultProject` when suitable, or exclude those specific files from the type-aware entry while retaining the base TypeScript checks. Do not use broad default-project globs, disable typed rules on application files or blanket-ignore errors to make lint pass. Ordinary TS coverage does not prove typed lint inside framework templates. [Typed-lint troubleshooting](https://typescript-eslint.io/troubleshooting/typed-linting/).
 
 Keep [eslint-config-prettier](https://github.com/prettier/eslint-config-prettier) after presets/overrides that may enable conflicting formatting rules. It disables conflicts; it does not run Prettier. Do not run Prettier as an ESLint rule.
 
@@ -271,4 +280,4 @@ Merge actual commands into target scripts and document working directories. Thes
 | build | The actual deliverable's compiler/bundler/framework command |
 | prepare | Only when Husky is selected: supported setup merged with existing lifecycle behavior |
 
-Record versions, exact scripts, selected settings, exclusions and observed verification in README or the optional [tooling document](../templates/docs/tooling.md); link task results rather than duplicating evidence. Follow [version selection](adoption.md#version-and-support-policy).
+Record versions, exact scripts, selected settings and exclusions in README or the optional [tooling document](../templates/docs/tooling.md). Link task evidence when it exists and report task-specific results directly otherwise. Follow [version selection](adoption.md#version-and-support-policy).

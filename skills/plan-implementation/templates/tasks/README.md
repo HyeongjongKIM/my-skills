@@ -1,12 +1,12 @@
 # Phase queue
 
-Use this index only when phased tracking is selected. Read the earliest phase that is not DONE and select its earliest task with completed dependencies. Do not bypass a blocked task or phase prerequisite. If this phase has no eligible work, an independent task in another phase may proceed only when all its task and phase prerequisites are satisfied. Preserve completed phases and evidence.
+Use this index when phased tracking is selected. Follow the [execution contract](#execution-contract) and preserve completed phases and evidence.
 
 | Phase                                     | Goal     | Dependencies             | Status |
 | ----------------------------------------- | -------- | ------------------------ | ------ |
 | [01 — {{PHASE_NAME}}](01-phase/README.md) | {{GOAL}} | {{DEPENDENCIES_OR_NONE}} | TODO   |
 
-Statuses: TODO, IN_PROGRESS, BLOCKED, DONE. Mark a phase DONE only when all tasks are DONE or approved deferrals are explicitly recorded. Update this index when phase status changes; link tasks using their full phase path across phases.
+Statuses: TODO, IN_PROGRESS, BLOCKED, DONE. Mark a phase DONE when each task is DONE or explicitly deferred with approval. Update this index when phase status changes. Link cross-phase tasks by full task path and phase prerequisites by phase index with the required outcome.
 
 ## Requirement coverage
 
@@ -25,11 +25,15 @@ Use existing specification anchors or stable requirement labels. Replace this ex
 
 ## Execution contract
 
-Use the project's existing execution/playbook and task-management procedures as the primary owner: {{EXISTING_PROCEDURE_LINKS_OR_CONTRACT_BELOW}}. If those procedures cover the following safeguards, keep their links and omit duplicate details below. Otherwise merge missing rules here. This contract remains available to implementers without an installed planning skill; it does not authorize implementation beyond the user's request.
+Use the project's existing execution/playbook and task-management procedures as the primary owner: {{EXISTING_PROCEDURE_LINKS_OR_CONTRACT_BELOW}}. Keep this pointer and omit any sections already covered by the linked procedures. Otherwise merge missing rules here. This contract remains available to implementers without an installed planning skill; it does not authorize implementation beyond the user's request.
+
+### Task selection
+
+Start with the earliest unfinished phase. Choose its earliest unfinished task that remains in scope, has no unresolved blocker and has satisfied task and phase prerequisites. Confirm that each prerequisite task or phase is DONE and its required outcome is available. A phase marked DONE with an approved deferral leaves any prerequisite relying on that deferred outcome unsatisfied. If the earliest phase has no eligible task, choose an independent task from another phase using the same checks. Apply the same checks on resume.
 
 ### Identity and lifecycle
 
-Every task ID is immutable from creation and must never be changed or reused, including TODO and cancelled tasks. Allocate collision-free IDs without renumbering. Keep status transitions and reasons in the original task record. Preserve the existing status vocabulary; record cancellation/supersession as a disposition when no corresponding status exists. Cancellation, splitting, merging or replacement retains original IDs, history, evidence and predecessor/successor links. Update dependents to actual replacement work; cancellation/supersession never fabricates DONE or satisfies prerequisites. New scope after DONE gets linked new IDs; evidence-based status corrections retain historical results. Execution order follows dependencies, not ID sorting.
+Every task ID is immutable from creation and must never be changed or reused, including TODO and cancelled tasks. Allocate unique new IDs for a new queue. In existing queues with phase-local IDs, use phase-qualified IDs or full task paths in cross-phase references and shared indexes. Keep status transitions and reasons in the original task record. Preserve the existing status vocabulary; record cancellation/supersession as a disposition when no corresponding status exists. Cancellation, splitting, merging or replacement retains original IDs, history, evidence and predecessor/successor links. Update dependents to actual replacement work; cancellation/supersession never fabricates DONE or satisfies prerequisites. New scope after DONE gets linked new IDs; evidence-based status corrections retain historical results. Execution order follows dependencies, not ID sorting.
 
 ### Feedback and synchronization
 

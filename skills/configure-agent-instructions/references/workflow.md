@@ -18,7 +18,7 @@ This guide owns the persistent working rules for the agent-instructions skill. T
 
 ## Before editing the target
 
-Read applicable AGENTS.md, README, Git status including staged/unstaged changes, relevant specifications, existing configurations, dependencies and task evidence. Identify already completed work. Select a bounded task with satisfied dependencies; preserve unrelated code, settings, dependencies and documents.
+Read applicable project instructions, README, and the relevant specifications, configurations, dependencies and task evidence. In a Git project, inspect staged and unstaged changes. Identify already completed work. Select a bounded task with satisfied dependencies and preserve unrelated work and settings.
 
 Consult current official documentation when adding/upgrading dependencies, changing tool/framework configuration, introducing or changing external API use, or when support/behavior is uncertain. Use the installed or selected version’s documentation; check maintenance/security, engines and peers for dependency changes. Reuse findings while their versions and applicability remain valid. Routine prose and local application changes need no new research unless they raise these questions. For new dependencies, select maintained, secure, compatible stable versions; no version or major is mandated. Preserve existing constraints and avoid unrelated upgrades. Record selected versions and retain the target lockfile. Historical examples are evidence, never installation defaults.
 
@@ -45,9 +45,9 @@ Assess complexity from requirement clarity, familiarity with the affected contra
 | Architecture design | High |
 | Complex dependency and task conflict analysis | High |
 
-Treat these levels as starting points and choose among the model's supported settings. Reassess if evidence reveals hidden coupling, uncertain causes, costly failure modes or a need for deeper multi-step reasoning. Increase effort or choose a more capable model where the host supports it and the expected benefit warrants the cost.
+Use these starting points within the selected model's supported settings when it has no more specific guidance for the workload. Reassess if evidence reveals hidden coupling, uncertain causes, costly failure modes or a need for deeper multi-step reasoning. Increase effort or choose a more capable model where the host supports it and the expected benefit warrants the cost.
 
-If the primary session needs a different setting, use or recommend its documented controls as permitted and carry forward the relevant findings and constraints. A subagent's settings apply to its own work. These criteria guide routing decisions in hosts with manual session controls as well as those with per-agent settings.
+If the primary session needs a different setting, use or recommend its documented controls as permitted and carry forward relevant findings and constraints. Prefer session-scoped changes for one-off work. Changes that persist or modes that can start subagents require the applicable authorization. A subagent's settings apply to its own work.
 
 ### Subagent delegation
 
@@ -75,9 +75,9 @@ Keep document responsibilities distinct and make only the documentation changes 
 
 ## Tailwind authoring preference
 
-When the target uses Tailwind CSS, put this ongoing preference in its applicable AGENTS.md. Prefer utilities directly in markup `class` or JSX `className`. Do not extract CSS classes or `@apply` solely to shorten attributes. Preserve deliberate existing abstractions; shared components, conditional class helpers and custom CSS remain appropriate when needed. Inline refers to where classes are authored, not a requirement to keep an attribute on one physical line or to use a `style` attribute.
+When the target uses Tailwind CSS, put this ongoing preference in its applicable project instructions. Prefer utilities directly in markup `class` or JSX `className`. Do not extract CSS classes or `@apply` solely to shorten attributes. Preserve deliberate existing abstractions; shared components, conditional class helpers and custom CSS remain appropriate when needed. Inline refers to where classes are authored, not a requirement to keep an attribute on one physical line or to use a `style` attribute.
 
-Keep conditional alternatives as complete utility strings rather than constructing fragments of class names. Detailed styling rationale may live in an existing project document linked from AGENTS.md, but the short preference must remain in AGENTS.md and work without an installed skill. Omit this guidance when Tailwind is absent; do not introduce Tailwind or alter lint configuration while adopting instructions.
+Keep conditional alternatives as complete utility strings rather than constructing fragments of class names. Link any existing styling rationale from the active instructions and keep the short preference there after skill removal. Omit this guidance when Tailwind is absent; do not introduce Tailwind or alter lint configuration while adopting instructions.
 
 ## Verification and completion in the target
 
@@ -87,11 +87,11 @@ Report changed files and purposes, verification, exclusions, blockers and the ne
 
 ## Procedure ownership and safe adoption
 
-AGENTS.md owns always-applicable constraints and real navigation, not a procedure manual. Use the target's existing playbook or task-management document as the primary owner of execution order, task lifecycle, gates and continuity. Planning methods belong in planning guidance; execution procedures must remain available during implementation without invoking a planning skill. No sibling skill, source-repository playbook or installed setup skill is a runtime prerequisite.
+The active project instructions own always-applicable constraints and navigation. Use the target's existing playbook or task-management document as the primary owner of execution order, task lifecycle, gates and continuity. Planning methods belong in planning guidance; execution procedures must remain available during implementation without invoking a planning skill. No sibling skill, source-repository playbook or installed setup skill is a runtime prerequisite.
 
-Before removing detailed rules from existing AGENTS.md, locate their target owner and preserve missing safeguards there. Link that owner from AGENTS.md with an explicit obligation to follow it. Reuse equivalent existing guidance, preserving its status vocabulary and layout; do not paste a second checklist beside it. If existing documents suffice, create nothing. If no procedural document is justified, keep the necessary short fallback in existing instructions and use the request's scope/acceptance/checklist with direct reporting. Do not relocate rules into inaccessible source references merely to shorten AGENTS.md.
+Before removing detailed rules from existing instructions, locate their target owner and preserve missing safeguards there. Link that owner from the project instructions with an explicit obligation to follow it. Reuse equivalent existing guidance, preserving its status vocabulary and layout; do not paste a second checklist beside it. If existing documents suffice, create nothing. If no procedural document is justified, keep the necessary short fallback in existing instructions and use the request's scope/acceptance/checklist with direct reporting. Keep procedural links within the target's accessible documents.
 
-Use the following adoption checklist only to fill gaps in the chosen owner, not as additional sections to copy into every AGENTS.md:
+Use the following adoption checklist only to fill gaps in the chosen owner.
 
 - **Planning:** compare original requirements with bounded tasks or a small checklist; check relevant nonfunctional needs, boundaries/data flow, API/UI/state/failure paths, observable acceptance, feasible verification, omissions, conflicts, duplicate scope, risks and dependency cycles/order. Record the review in existing tracking or report directly.
 - **Identity and lifecycle:** every task ID is immutable from creation and must never be reused. Retain status transitions/reasons and evidence, including cancelled tasks. Splits, merges and replacements retain original records/IDs and predecessor/successor links; update dependents to actual replacement work. Supersession or cancellation does not establish DONE or satisfy a dependency. New scope receives new linked IDs; evidence-based status corrections retain prior history. Synchronize task/phase/queue progress using existing conventions; never invent completion to hide a blocker.
@@ -99,7 +99,7 @@ Use the following adoption checklist only to fill gaps in the chosen owner, not 
 - **Execution and completion:** use satisfied task and phase prerequisites; verify affected behavior with actual commands, preserving results and not-run reasons in task evidence or the response. Compare actual behavior/evidence with original requirements and approved changes, independently of DONE statuses. Report COMPLETED only with requirements and mandatory verification satisfied, PARTIAL for missing implementation/checks, or BLOCKED for a material constraint preventing progress. Keep approved deferrals explicit; a planning-only result is not implemented behavior.
 - **Continuity:** for long work, keep one checkpoint in existing tracking with current work, next eligible action, decisions/blockers, incomplete changes and verification links. On resume, read applicable instructions, checkpoint and relevant requirements/tasks, inspect Git changes and reconcile stale assumptions/evidence before continuing. Do not reset records, create a second tracker or require whole-project rereads. For short work, direct reporting suffices.
 
-Keep AGENTS.md's material-problem stop/approval and honest-verification obligations explicit even when procedure details are delegated. Do not mandate phases, playbooks or task files for small projects, or invent document paths and commands.
+Keep the material-problem stop/approval and honest-verification obligations explicit in the project instructions even when they link to detailed procedures. Do not mandate phases, playbooks or task files for small projects, or invent document paths and commands.
 
 ## Repeated-error prevention
 

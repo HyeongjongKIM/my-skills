@@ -7,10 +7,10 @@ Personal development preferences packaged as independent, instruction-only skill
 | Skill | Use when | Result |
 | --- | --- | --- |
 | [configure-project-tooling](skills/configure-project-tooling/SKILL.md) | Set up or align TypeScript lint, format and type checking, with optional Astro/React, editor and hook integrations | Necessary configuration changes and actual verification in the target |
-| [configure-agent-instructions](skills/configure-agent-instructions/SKILL.md) | Introduce or refine persistent AI-agent instructions, including model routing and delegation | Concise AGENTS.md rules, procedure navigation and optional Codex or Claude Code agent settings for the target |
+| [configure-agent-instructions](skills/configure-agent-instructions/SKILL.md) | Introduce or refine persistent AI-agent instructions, including model routing and delegation | Concise rules in the target's active project instructions, procedure navigation and optional host-specific settings |
 | [plan-implementation](skills/plan-implementation/SKILL.md) | Turn requirements into bounded phases and tasks | Proportionate plans, stable task identity/history, dependency review and Planning Quality Gate |
 
-Select only the skills needed for the current request. Installing every skill in a target project is optional. Each has its own completion conditions and bundles its required references/templates; none requires a sibling skill to be installed. Preserve the target's instructions, conventions, user changes and completed evidence. Core persistent rules and mandatory procedure pointers belong in the target AGENTS.md. Detailed task lifecycle, gates and resume belong in existing execution/tracking documents, available without invoking a skill.
+Select only the skills needed for the current request. Each bundles its required references and templates. Core rules and mandatory procedure pointers belong in the target's active project instructions. Detailed task lifecycle, gates and resume belong in existing execution or tracking documents, available without invoking a skill.
 
 ## Structure
 
@@ -63,11 +63,11 @@ skills/
 
 This repository is a collection of independently usable skills. Each directory directly under `skills/` contains its own SKILL.md, references and templates. Install selected complete skill folders from the catalog. The [agent efficiency policy](skills/configure-agent-instructions/references/workflow.md#agent-efficiency-and-model-routing) covers model choice, delegation and context use. Its [model routing reference](skills/configure-agent-instructions/references/model-routing.md) provides optional target configuration examples.
 
-After publishing this repository, ask the Codex skill installer to install the desired folder from its Git repository URL and path. Specify `skills/configure-project-tooling`, `skills/configure-agent-instructions` or `skills/plan-implementation`. Use the actual remote URL and an existing revision; no remote URL or committed revision is assumed here. Follow the current [official installation documentation](https://learn.chatgpt.com/docs/build-skills) for the installed host.
+For local use, follow the discovery instructions for [Codex](docs/harness/codex.md) or [Claude Code](docs/harness/claude-code.md). Copy the selected complete skill folders, including references and templates, to the host's project skill directory. Cloning the source repository alone does not register its skills. Preserve any existing same-name installation until its source and intended scope are confirmed.
 
-For local use without publishing, copy the desired complete skill folders into the adopting project's `.agents/skills/` directory. Keep references and templates with each SKILL.md. Cloning this source repository elsewhere alone does not register the skills. Installation scope is a user or target-project decision; this repository does not automatically register skills or change other projects.
+When the desired revision is accessible on GitHub, Codex can also use `$skill-installer`. Provide the real repository URL, revision and selected `skills/<skill-name>` path. Check the destination scope before installing. [Codex skills documentation](https://learn.chatgpt.com/docs/build-skills#install-curated-skills-for-local-use), [official installer instructions](https://github.com/openai/skills/blob/main/skills/.system/skill-installer/SKILL.md).
 
-Once installed, invoke the selected skill from the target project:
+Once installed, invoke the selected skill from the target project. These examples use Codex's `$` syntax. Claude Code uses `/<skill-name>`.
 
 - “Use $configure-project-tooling to align this project's lint, format and type checks. Preserve existing conventions and report exclusions.”
 - “Use $configure-agent-instructions to tailor AGENTS.md and document navigation to this repository.”
@@ -101,11 +101,11 @@ The design selectively draws on [pstack](https://github.com/cursor/plugins/tree/
 
 After configuration and applicable target verification are complete, you may remove a project-local copy or registration of this skill. Preserve the resulting configuration, dependencies, lockfile, commands, project decisions and verification evidence. Removing skill instructions does not uninstall the development tools. Keep or reinstall the skill when another tooling change is needed; do not remove it automatically as part of setup.
 
-`configure-agent-instructions` produces core target instructions and navigation, preserving detailed safeguards in their existing procedure owners. The resulting AGENTS.md, documents and any selected agent settings remain usable after that skill is removed. `plan-implementation` is reusable whenever new requirements need task plans; existing plans and evidence remain in the target independently of the skill.
+`configure-agent-instructions` produces core target instructions and navigation, preserving detailed safeguards in their existing procedure owners. The resulting instructions, documents and any selected agent settings remain usable after that skill is removed. `plan-implementation` is reusable whenever new requirements need task plans; existing plans and evidence remain in the target independently of the skill.
 
-For Tailwind projects, `configure-agent-instructions` records the inline utility authoring preference in the target AGENTS.md. `configure-project-tooling` configures canonical-class linting separately. Either skill can be used independently; routine authoring follows the target instructions and installed tooling after setup skills are removed.
+For Tailwind projects, `configure-agent-instructions` records the inline utility authoring preference in the target's active instructions. `configure-project-tooling` configures canonical-class linting separately. Either skill can be used independently; routine authoring follows the target instructions and installed tooling after setup skills are removed.
 
-Keep ongoing project rules and verification commands in the target's existing AGENTS.md, README or tooling document as appropriate. They must not require an installed setup skill or link to its project-local installation path. Installing a skill, applying its instructions and retaining its outputs are separate choices.
+Keep ongoing project rules and verification commands in the target's existing project instructions, README or tooling document as appropriate. They must not require an installed setup skill or link to its project-local installation path. Installing a skill, applying its instructions and retaining its outputs are separate choices.
 
 ## Stable preferences and target decisions
 

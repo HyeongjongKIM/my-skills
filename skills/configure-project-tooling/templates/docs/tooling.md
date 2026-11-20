@@ -29,6 +29,6 @@ Follow applicable target instructions for when official research is needed. For 
 
 {{COMPATIBILITY_DECISIONS_AND_OFFICIAL_LINKS_OR_NONE}}
 
-{{TASK_EVIDENCE_LINK_OR_COMMANDS_RESULTS_AND_LIMITATIONS}}
+{{TASK_EVIDENCE_LINK_IF_AVAILABLE}}
 
-Keep commands/results, unexecuted checks and unresolved issues concise. Include environment details when they explain a result; distinguish official support from local build/typecheck and runtime evidence.
+Keep enduring verification limitations and unresolved tooling decisions here when they affect normal development. Report task-specific commands, results and checks not run in task evidence or directly in the handoff. Distinguish official support from local build/typecheck and runtime evidence.
