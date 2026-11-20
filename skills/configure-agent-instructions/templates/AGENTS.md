@@ -14,6 +14,10 @@ Follow applicable nested instructions and {{EXISTING_PLAYBOOK_OR_TASK_MANAGEMENT
 
 Work within the authorized scope and satisfied prerequisites. Inspect staged/unstaged Git changes; preserve user changes, existing behavior outside scope and completed evidence. If a material plan contradiction, missing prerequisite or infeasible requirement appears, stop affected work, report evidence, impact and a proposed correction, and obtain user approval before proceeding. Continue independent authorized work.
 
+Use the most efficient model and reasoning effort that can complete the work reliably. Reassess when complexity or risk increases, and preserve required verification. Start with relevant files and reuse evidence that still applies.
+
+Handle straightforward work directly. Delegate only when authorized and the benefit justifies the cost. Assign distinct scopes, keep analysis read-only and give each edited file one owner at a time. Integrate and verify delegated results in the primary session.
+
 ## Coding standards
 
 {{PROJECT_WIDE_CODING_RULES_AND_GENERATED_PATHS}}

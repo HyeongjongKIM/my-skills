@@ -28,6 +28,40 @@ Make small changes within the selected scope. Use documented supported configura
 
 If support cannot be established, stop the dependent work and report the exact constraint, official sources and supported alternatives. Continue independent authorized work. Preserve completed tasks and their evidence; specifications own requirements and acceptance, while task documents own execution plans and results.
 
+## Agent efficiency and model routing
+
+Choose the most efficient available model and effort that can reliably implement and verify the work. Account for the model's capabilities and the tools and context the task requires. Consider total cost, including reasoning, tool calls, likely retries, context handoff, integration and verification, plus any subagent execution. A lower-priced model can cost more overall if it requires repeated attempts or greater review. Accuracy, implementation quality, security and required verification take precedence over token savings.
+
+Assess complexity from requirement clarity, familiarity with the affected contracts, dependency coupling, state and failure modes, reversibility, and the risk and difficulty of verification. File count, code length and repository size are context only. A small permission change can need deep review, while a mechanical change across many files can be straightforward.
+
+| Task | Initial reasoning effort |
+| --- | --- |
+| Simple code edits | Low |
+| UI and style changes | Low |
+| Clear test and lint fixes | Low |
+| Routine feature implementation | Medium |
+| Refactoring across modules | Medium |
+| Complex debugging and state management | Medium or High |
+| Architecture design | High |
+| Complex dependency and task conflict analysis | High |
+
+Treat these levels as starting points and choose among the model's supported settings. Reassess if evidence reveals hidden coupling, uncertain causes, costly failure modes or a need for deeper multi-step reasoning. Increase effort or choose a more capable model where the host supports it and the expected benefit warrants the cost.
+
+If the primary session needs a different setting, use or recommend its documented controls as permitted and carry forward the relevant findings and constraints. A subagent's settings apply to its own work. These criteria guide routing decisions in hosts with manual session controls as well as those with per-agent settings.
+
+### Subagent delegation
+
+- Handle straightforward or tightly coupled work in the primary session. Delegate only when authorized and supported, and when specialist analysis, independent work or isolation of substantial tool output justifies the extra requests, context transfer and review cost. Use the fewest agents that provide a concrete benefit. Avoid nesting and limit concurrency to work that can proceed independently.
+- Follow the target's task prerequisites and execution procedures. A routing decision leaves task ownership, dependency order, lifecycle and gates governed by those procedures. Respect any sequential execution requirement.
+- Define a distinct question or deliverable, relevant paths, governing constraints and expected evidence for each delegate. Share known findings to avoid duplicate exploration. Make analysis assignments read-only. Give each editing assignment exclusive ownership of explicit paths for its duration, including against concurrent primary-agent edits. Serialize work that needs overlapping files.
+- Ask for concise findings, relevant file or symbol references, changes, checks and unresolved risks. The primary agent resolves conflicts, integrates results and verifies affected behavior before claiming completion.
+
+### Token and context management
+
+- Start with applicable instructions and likely entry points. Use targeted search and bounded reads, expanding along the relevant call paths, dependencies or ownership boundaries as needed. Reuse findings and verification evidence while the code, versions, environment and assumptions still apply. Recheck affected integration boundaries after changes.
+- Investigate a repeated failure before rerunning its check. Retry when a correction, changed condition or diagnostic purpose justifies it. Read and report the relevant parts of long outputs while retaining the failing command, root-cause evidence or uncertainty, exit status and verification result as applicable. Retrieve more context when excerpts are insufficient.
+- Keep requirements, constraints, decisions and unresolved verification available through handoffs and context compaction. Follow existing evidence ownership below. Prefer concise, verifiable results and avoid repeating logs or task history in the completion summary.
+
 ## Documentation management
 
 Keep document responsibilities distinct and make only the documentation changes needed for the authorized work.
@@ -70,5 +104,3 @@ Keep AGENTS.md's material-problem stop/approval and honest-verification obligati
 ## Repeated-error prevention
 
 For recurring mistakes, assess recurrence, impact and maintenance cost. Prefer prevention through architecture/API design, then static checks, automated behavioral tests, runtime checks, and finally prose for judgment that cannot be encoded. Reuse existing checks; do not add a rule for every incident. In an adopting project, verify selected automation against representative valid/invalid cases and normal checks/CI when present. Do not introduce tools merely to restate a rule or weaken checks to hide failures. Source maintenance here documents safeguards without running them.
-
-Read only relevant documents. Reuse research and evidence while versions, code and assumptions remain valid; recheck affected integration boundaries after changes. Token savings never justify omitting required verification.

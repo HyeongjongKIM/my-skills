@@ -7,7 +7,7 @@ Personal development preferences packaged as independent, instruction-only skill
 | Skill | Use when | Result |
 | --- | --- | --- |
 | [configure-project-tooling](skills/configure-project-tooling/SKILL.md) | Set up or align TypeScript lint, format and type checking, with optional Astro/React, editor and hook integrations | Necessary configuration changes and actual verification in the target |
-| [configure-agent-instructions](skills/configure-agent-instructions/SKILL.md) | Introduce or refine persistent AI-agent instructions and project document navigation | Concise core AGENTS.md rules and navigation to existing procedure owners |
+| [configure-agent-instructions](skills/configure-agent-instructions/SKILL.md) | Introduce or refine persistent AI-agent instructions, including model routing and delegation | Concise AGENTS.md rules, procedure navigation and optional Codex or Claude Code agent settings for the target |
 | [plan-implementation](skills/plan-implementation/SKILL.md) | Turn requirements into bounded phases and tasks | Proportionate plans, stable task identity/history, dependency review and Planning Quality Gate |
 
 Select only the skills needed for the current request. Installing every skill in a target project is optional. Each has its own completion conditions and bundles its required references/templates; none requires a sibling skill to be installed. Preserve the target's instructions, conventions, user changes and completed evidence. Core persistent rules and mandatory procedure pointers belong in the target AGENTS.md. Detailed task lifecycle, gates and resume belong in existing execution/tracking documents, available without invoking a skill.
@@ -44,6 +44,7 @@ skills/
     references/
       workflow.md
       documents.md
+      model-routing.md
     templates/
       AGENTS.md
       README.md
@@ -60,7 +61,7 @@ skills/
 
 ## Use from another project
 
-This repository is a collection of independently usable skills. Each directory directly under `skills/` contains its own SKILL.md, references and templates. Use selected complete skill folders; the repository root is a catalog, not an installable skill.
+This repository is a collection of independently usable skills. Each directory directly under `skills/` contains its own SKILL.md, references and templates. Install selected complete skill folders from the catalog. The [agent efficiency policy](skills/configure-agent-instructions/references/workflow.md#agent-efficiency-and-model-routing) covers model choice, delegation and context use. Its [model routing reference](skills/configure-agent-instructions/references/model-routing.md) provides optional target configuration examples.
 
 After publishing this repository, ask the Codex skill installer to install the desired folder from its Git repository URL and path. Specify `skills/configure-project-tooling`, `skills/configure-agent-instructions` or `skills/plan-implementation`. Use the actual remote URL and an existing revision; no remote URL or committed revision is assumed here. Follow the current [official installation documentation](https://learn.chatgpt.com/docs/build-skills) for the installed host.
 
@@ -92,7 +93,7 @@ Requirements map to bounded tasks or a small checklist, with observable acceptan
 
 The [scenario review](docs/workflow-scenarios.md) records normal, failure, interruption and resume walkthroughs. It is document review, not a claim of executed agent or application tests.
 
-The design selectively draws on [pstack](https://github.com/cursor/plugins/tree/main/pstack) for verifiable work units and structural learning, and the [BigGo discussion summary](https://finance.biggo.com/podcast/5a6129233f489c0e) for investing in architecture and verification before prose. This repository applies those ideas to a single-agent Markdown workflow; it does not adopt their orchestration, API bans, tooling stack or reported performance figures. External pages are background reading, not runtime prerequisites.
+The design selectively draws on [pstack](https://github.com/cursor/plugins/tree/main/pstack) for verifiable work units and structural learning, and the [BigGo discussion summary](https://finance.biggo.com/podcast/5a6129233f489c0e) for investing in architecture and verification before prose. The sequential playbooks apply those ideas to Markdown procedures and gates. External pages are optional background reading.
 
 ## When to keep a skill installed
 
@@ -100,7 +101,7 @@ The design selectively draws on [pstack](https://github.com/cursor/plugins/tree/
 
 After configuration and applicable target verification are complete, you may remove a project-local copy or registration of this skill. Preserve the resulting configuration, dependencies, lockfile, commands, project decisions and verification evidence. Removing skill instructions does not uninstall the development tools. Keep or reinstall the skill when another tooling change is needed; do not remove it automatically as part of setup.
 
-`configure-agent-instructions` produces core target instructions and navigation, preserving detailed safeguards in their existing procedure owners. The resulting AGENTS.md and documents remain useful after that skill is removed. `plan-implementation` is reusable whenever new requirements need task plans; existing plans and evidence remain in the target independently of the skill.
+`configure-agent-instructions` produces core target instructions and navigation, preserving detailed safeguards in their existing procedure owners. The resulting AGENTS.md, documents and any selected agent settings remain usable after that skill is removed. `plan-implementation` is reusable whenever new requirements need task plans; existing plans and evidence remain in the target independently of the skill.
 
 For Tailwind projects, `configure-agent-instructions` records the inline utility authoring preference in the target AGENTS.md. `configure-project-tooling` configures canonical-class linting separately. Either skill can be used independently; routine authoring follows the target instructions and installed tooling after setup skills are removed.
 
