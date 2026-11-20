@@ -74,7 +74,7 @@ Inspect the assigned paths without editing files.
 Return relevant file or symbol references, the checks you found, and any gaps.
 ```
 
-Subagent requests count toward the same usage limits as the primary session. Compare the benefit of keeping verbose work out of the primary context with the cost of the extra requests. Where available, use `/usage` to review session token usage or plan usage when assessing recurring workloads. [Claude Code subagents](https://code.claude.com/docs/en/sub-agents), [usage and costs](https://code.claude.com/docs/en/costs).
+Subagent requests count toward the same usage limits as the primary session. Compare the benefit of keeping verbose work out of the primary context with the cost of the extra requests. [Claude Code subagents](https://code.claude.com/docs/en/sub-agents), [usage and costs](https://code.claude.com/docs/en/costs).
 
 ## Confirm target behavior
 

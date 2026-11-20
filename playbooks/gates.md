@@ -10,6 +10,8 @@ Inspect specification/task conflicts, duplicate scope, missing/circular dependen
 
 ## Feedback during execution
 
+Start with the smallest available check that gives meaningful feedback on the change, such as a bug reproduction or focused regression test. Expand coverage when changes affect shared behavior or integration boundaries. Track which results apply so the Completion Gate can reuse current evidence.
+
 After each bounded change, compare observations with acceptance. On omissions, contradictions, constraints, design changes, failed checks or recurring mistakes, analyze impact against specification/tasks and decide correction or new work. Apply the material-problem stop/report/approval rule above before resuming affected work. Preserve existing IDs/history, update coverage/dependencies/acceptance and repeat the affected planning review. Follow the existing task-management identity policy: every ID is immutable from creation and never reused; retain cancelled and split/merged/replaced records, history and references. Allocate new IDs without renumbering. New scope after DONE gets linked new work; evidence-based corrections retain historical results.
 
 Use applicable target instructions for recurring-error prevention and support decisions. If absent, consider recurrence, impact and upkeep; prefer architecture/API improvements, static checks, automated tests, runtime checks, then prose for judgment. Reuse checks and verify selected guards with good/bad cases in the target. Do not introduce dependencies or new rules without a concrete need and authorization.
@@ -17,6 +19,8 @@ Use applicable target instructions for recurring-error prevention and support de
 ## Completion Gate
 
 Re-read original requirements and approved changes independently of the task list. Compare actual implementation and observed evidence, including user-visible behavior, acceptance, required checks, integration/regression coverage and material unresolved issues. Find requirements omitted by planning; add missing work rather than treating all DONE as proof. Use target commands where available, record exact results and reasons for checks not run, and distinguish existing failures from regressions. A build or empty suite alone cannot prove behavior.
+
+Account for every required check. Reuse a result only if it covers the required behavior and its relevant code, dependencies, configuration and environment still match the final state. Run missing or stale checks and any fresh checks the target requires.
 
 - COMPLETED: requested requirements and mandatory verification are satisfied with applicable evidence.
 - PARTIAL: implementation or required verification remains incomplete, including a required check that failed, was not run or became stale.

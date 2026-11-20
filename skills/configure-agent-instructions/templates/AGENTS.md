@@ -14,7 +14,7 @@ Follow applicable nested instructions and {{EXISTING_PLAYBOOK_OR_TASK_MANAGEMENT
 
 Work within the authorized scope and satisfied prerequisites. Inspect staged/unstaged Git changes; preserve user changes, existing behavior outside scope and completed evidence. If a material plan contradiction, missing prerequisite or infeasible requirement appears, stop affected work, report evidence, impact and a proposed correction, and obtain user approval before proceeding. Continue independent authorized work.
 
-Use the most efficient model and reasoning effort that can complete the work reliably. Reassess when complexity or risk increases, and preserve required verification. Start with relevant files and reuse evidence that still applies.
+Use the most efficient model and reasoning effort that can complete the work reliably. Reassess when complexity or risk increases, and preserve required verification. Keep one coherent goal per session. Start with relevant files and reuse evidence that still applies.
 
 Handle straightforward work directly. Delegate only when authorized and the benefit justifies the cost. Assign distinct scopes, keep analysis read-only and give each edited file one owner at a time. Integrate and verify delegated results in the primary session.
 
@@ -30,7 +30,7 @@ Detailed tooling / runtime / package-manager / commit conventions: {{EXISTING_TO
 
 {{ACTUAL_APPLICABLE_COMMANDS_WITH_WORKING_DIRECTORY_OR_EXPLICIT_GAPS}}
 
-Verify affected behavior and required checks before claiming completion. A build or DONE queue alone is insufficient. Record actual results and not-run reasons in existing task evidence, or report directly when no task document exists. Follow the linked execution procedures for detailed gates and evidence; never claim unexecuted checks passed.
+Start with focused checks. Before claiming completion, verify affected behavior and confirm that every required check has current evidence. Run missing or stale checks and any fresh checks the project requires. A build or DONE queue alone is insufficient. Record actual results and not-run reasons in existing task evidence, or report directly when no task document exists. Follow the linked execution procedures for detailed gates and evidence. Never claim unexecuted checks passed.
 
 ## Documentation
 

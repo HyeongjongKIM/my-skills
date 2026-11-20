@@ -2,6 +2,12 @@
 
 Personal development preferences packaged as independent, instruction-only skills. This repository contains English Markdown instructions, references and document templates. Configuration examples describe files to create or merge in an adopting project; they are not executable configuration for this repository.
 
+## Efficient agent workflows
+
+One agent follows the selected playbook and scales planning to the task. Use a session for one coherent goal, choose a model and reasoning effort suited to the work, and carry forward findings that still apply. [Agent efficiency policy](skills/configure-agent-instructions/references/workflow.md#agent-efficiency-and-model-routing)
+
+Start with focused checks during implementation. Before reporting success, confirm that every required check has current evidence. Reuse results that still apply and run the checks that need fresh results. [Verification criteria](playbooks/gates.md)
+
 ## Choose a skill
 
 | Skill | Use when | Result |

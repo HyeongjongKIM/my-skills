@@ -59,6 +59,7 @@ If the primary session needs a different setting, use or recommend its documente
 ### Token and context management
 
 - Start with applicable instructions and likely entry points. Use targeted search and bounded reads, expanding along the relevant call paths, dependencies or ownership boundaries as needed. Reuse findings and verification evidence while the code, versions, environment and assumptions still apply. Recheck affected integration boundaries after changes.
+- Keep related investigation, implementation and review in one session while the context remains useful. For a separate goal, start with the relevant requirements and project state in a fresh session.
 - Investigate a repeated failure before rerunning its check. Retry when a correction, changed condition or diagnostic purpose justifies it. Read and report the relevant parts of long outputs while retaining the failing command, root-cause evidence or uncertainty, exit status and verification result as applicable. Retrieve more context when excerpts are insufficient.
 - Keep requirements, constraints, decisions and unresolved verification available through handoffs and context compaction. Follow existing evidence ownership below. Prefer concise, verifiable results and avoid repeating logs or task history in the completion summary.
 
@@ -81,7 +82,7 @@ Keep conditional alternatives as complete utility strings rather than constructi
 
 ## Verification and completion in the target
 
-Run applicable formatting, lint, typecheck, real tests, builds and hook checks in the target. Verify behavior affected by the change; static compilation alone is insufficient for runtime claims. Record actual commands, results and limitations concisely in existing task evidence, or report directly when no task document exists. Include environment details only when relevant to understanding or reproducing results. Mark unexecuted checks as not run with reasons; an empty suite is not behavioral coverage.
+Use focused checks during implementation for fast feedback. Before claiming completion, verify affected behavior and confirm results for all applicable formatting, lint, typecheck, real tests, builds and hook checks in the target. Reuse results that still apply to the final state and run any missing, stale or explicitly required fresh checks. Static compilation alone is insufficient for runtime claims. Record actual commands, results and limitations concisely in existing task evidence, or report directly when no task document exists. Include environment details only when relevant to understanding or reproducing results. Mark unexecuted checks as not run with reasons. An empty suite is not behavioral coverage.
 
 Report changed files and purposes, verification, exclusions, blockers and the next action briefly. Link task evidence instead of repeating it; no separate report document or research table is required for routine work. Do not commit, create remotes, push or deploy without authorization. The skill source repository is documentation-only and does not execute these target-project checks.
 
