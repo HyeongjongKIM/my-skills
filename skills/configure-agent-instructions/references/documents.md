@@ -5,7 +5,7 @@ Templates are Markdown source documents. Merge selected content into the target,
 | Template | Target role |
 | --- | --- |
 | [AGENTS.md](../templates/AGENTS.md) | Core project constraints, scope and actual command/document pointers |
-| [README.md](../templates/README.md) | Current project state, purpose, setup, development commands and navigation |
+| [README.md](../templates/README.md) | Current project state, purpose, setup, development commands, available skills and navigation |
 | [Architecture](../templates/docs/architecture.md) | Optional current boundaries/data flow when README is insufficient; link ADRs for significant decision history when needed |
 
 Start with existing project instructions and README content. Keep simple architecture and tooling decisions in README. Link an existing tooling document when useful. Remove unsupported command rows and describe absent checks honestly. Node-specific template fields apply only when the target uses Node.
@@ -13,6 +13,8 @@ Start with existing project instructions and README content. Keep simple archite
 Preserve the target's task tracker and completed evidence. If it uses phased Markdown tasks, link its queue and keep task/phase/index statuses consistent. If no tracker is needed, omit its link; do not create empty phases just to adopt instructions. Concrete requirements, phase decomposition and task generation belong to a separate planning request.
 
 Apply the [document responsibilities](workflow.md#documentation-management) and [adoption checklist](workflow.md#procedure-ownership-and-safe-adoption) when merging existing guidance.
+
+For skill installation and updates, follow the [skill documentation and update policy](workflow.md#skill-documentation-and-updates). Use the README's skill list for current availability and purpose, with relative links in its navigation to the actual project instructions and playbooks.
 
 ## Instruction discovery
 

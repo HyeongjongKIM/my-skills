@@ -19,3 +19,5 @@ Read [planning guidance](references/planning.md). Reuse existing tracking or a s
 ## Completion and boundaries
 
 Deliver proportionate plans in existing tracking, a short checklist, or a queue with phase/task documents when needed. Summarize the next eligible task, blockers, open decisions, changed files and review limits. Preserve completed work and meaningful evidence. Follow applicable target instructions throughout; this skill also works when no AGENTS.md exists. Do not implement the planned work, install tools, rewrite persistent instructions or run application checks merely to finish planning. Do not commit, create remotes, push or deploy without authorization.
+
+When installing or updating this skill is in scope, follow the [skill documentation and update policy](references/planning.md#skill-documentation-and-updates).

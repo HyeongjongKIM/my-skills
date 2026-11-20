@@ -2,8 +2,6 @@
 
 Optional separate document: keep this information in README.md for a small project. Remove unused policy entries and link task evidence instead of duplicating it.
 
-Applied standard: {{STANDARD_URL_AND_TAG_OR_SHA_OR_UNCOMMITTED_LOCAL_PATH}}.
-
 ## Environment and commands
 
 Runtime/framework: {{STACK_AND_RUNTIME_VERSION}}. Package manager: {{MANAGER_VERSION}}. Lockfile: {{LOCKFILE_PATH}}.

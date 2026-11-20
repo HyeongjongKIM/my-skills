@@ -51,3 +51,9 @@ Hand off execution to the target's existing playbook/task-management procedure. 
 ## Completion is separate from queue status
 
 DONE tasks alone do not establish requirement completion. Planning completion means a reviewed plan, with implementation still TODO or BLOCKED as appropriate. The execution owner performs the actual Completion Gate against original requirements and observed evidence; see the bundled queue contract when no existing procedure suffices. A planning-only request does not run application checks or claim implementation completion.
+
+## Skill documentation and updates
+
+When installing or updating this skill, keep the target README's list of available skills and their purposes current, with relative links to the project's own instructions, playbooks and related documents. Record the source repository name, URL, commit SHA or tag only when the user requests source tracking or the target rules require it. Use the designated location for the requested or required details. An authorized Git commit message is an option when the location is left open.
+
+When updating this skill, prioritize the target's adopted scope and applicable rules for work order, stop and approval conditions, and required verification. Install additional skills or change model settings only when separately requested. Limit existing document edits and cleanup of historical records to the requested scope and preserve meaningful verification evidence.

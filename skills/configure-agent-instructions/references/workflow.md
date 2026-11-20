@@ -74,6 +74,12 @@ Keep document responsibilities distinct and make only the documentation changes 
 - Do not describe previous implementations or discarded designs as current behavior. Preserve meaningful historical task evidence in its owning document.
 - Link information already owned by another document instead of duplicating it. Do not repeat Git-tracked change details in separate Markdown logs.
 
+## Skill documentation and updates
+
+When installing or updating skills, list currently available skills and their purposes in the target README. Use relative links to the project's own active instructions, playbooks and other relevant documents. Record source repository names, URLs, commit SHAs or tags only when the user requests source tracking or the target rules require it. Use the designated location and include only the requested or required details. An authorized Git commit message is an option when the location is left open.
+
+When updating skills, prioritize the target's adopted scope and applicable rules. Follow its work order, stop and approval conditions, and required verification. Install additional skills or change model settings only when separately requested. Limit document edits and cleanup of previous source records or historical work evidence to the requested scope. Preserve meaningful verification evidence.
+
 ## Tailwind authoring preference
 
 When the target uses Tailwind CSS, put this ongoing preference in its applicable project instructions. Prefer utilities directly in markup `class` or JSX `className`. Do not extract CSS classes or `@apply` solely to shorten attributes. Preserve deliberate existing abstractions; shared components, conditional class helpers and custom CSS remain appropriate when needed. Inline refers to where classes are authored, not a requirement to keep an attribute on one physical line or to use a `style` attribute.

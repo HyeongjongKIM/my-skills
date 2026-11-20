@@ -18,6 +18,8 @@ Use the most efficient model and reasoning effort that can complete the work rel
 
 Handle straightforward work directly. Delegate only when authorized and the benefit justifies the cost. Assign distinct scopes, keep analysis read-only and give each edited file one owner at a time. Integrate and verify delegated results in the primary session.
 
+When updating skills, start with the scope already adopted here. Follow this project's work order, stop and approval conditions, and required verification. Install additional skills or change model settings only when separately requested.
+
 ## Coding standards
 
 {{PROJECT_WIDE_CODING_RULES_AND_GENERATED_PATHS}}
@@ -35,6 +37,8 @@ Start with focused checks. Before claiming completion, verify affected behavior 
 ## Documentation
 
 README owns current project state and navigation; specifications own requirements and acceptance; architecture owns current boundaries and decisions. Task documents own execution plans, history and evidence; existing tracking owns progress and next actions. Update the relevant owner and link it instead of duplicating content or creating work diaries. Keep simple projects in existing documents.
+
+For skill installs and updates, keep the README's available skills, their purposes and relative links to active instructions and playbooks current. Record source repository details only when the user requests source tracking or project rules require it. Use the designated location, with an authorized Git commit message as an option if the location is left open. Limit edits to existing documents and cleanup of historical records to the requested scope. Preserve meaningful verification evidence.
 
 ## Security & authorization
 

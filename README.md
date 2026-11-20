@@ -69,7 +69,7 @@ skills/
 
 This repository is a collection of independently usable skills. Each directory directly under `skills/` contains its own SKILL.md, references and templates. Install selected complete skill folders from the catalog. The [agent efficiency policy](skills/configure-agent-instructions/references/workflow.md#agent-efficiency-and-model-routing) covers model choice, delegation and context use. Its [model routing reference](skills/configure-agent-instructions/references/model-routing.md) provides optional target configuration examples.
 
-For local use, follow the discovery instructions for [Codex](docs/harness/codex.md) or [Claude Code](docs/harness/claude-code.md). Copy the selected complete skill folders, including references and templates, to the host's project skill directory. Cloning the source repository alone does not register its skills. Preserve any existing same-name installation until its source and intended scope are confirmed.
+For local use, follow the discovery instructions for [Codex](docs/harness/codex.md) or [Claude Code](docs/harness/claude-code.md). Copy the selected complete skill folders, including references and templates, to the host's project skill directory. Cloning the source repository alone does not register its skills. Before replacing a same-name installation, confirm that it is within the requested scope.
 
 When the desired revision is accessible on GitHub, Codex can also use `$skill-installer`. Provide the real repository URL, revision and selected `skills/<skill-name>` path. Check the destination scope before installing. [Codex skills documentation](https://learn.chatgpt.com/docs/build-skills#install-curated-skills-for-local-use), [official installer instructions](https://github.com/openai/skills/blob/main/skills/.system/skill-installer/SKILL.md).
 
@@ -80,6 +80,18 @@ Once installed, invoke the selected skill from the target project. These example
 - “Use $plan-implementation to turn these requirements into phased tasks without implementing them.”
 
 In Codex CLI or the IDE extension, use `/skills` to inspect available skills. If discovery has not refreshed, restart Codex. See the [Agent Skills specification](https://agentskills.io/specification) for the instruction format. This repository remains Markdown-only; it contains no executable installer or plugin manifest.
+
+### Target README and source tracking
+
+When installing or updating skills, use the target README to list the skills currently available to the project and what each is for. Link to the project's own `AGENTS.md` or equivalent active instruction file, playbooks and other relevant documents using their actual relative paths. When availability changes, keep the list current.
+
+Record the source repository name, URL, commit SHA or tag only when the user requests source tracking or the target's rules require it. Record only the requested or required details in the designated location. The message of an authorized Git commit is an option when the location is left open.
+
+### Update an existing installation
+
+Start with the scope the target already adopted and its applicable instructions. Review updates against local adaptations and follow the target's rules for work order, when to stop or obtain approval, and required verification. Installing additional skills or changing model settings requires a separate request.
+
+Limit edits to existing documents to the requested scope, including any cleanup of prior source records or historical work evidence. Preserve meaningful verification evidence.
 
 ## Execute a playbook
 
@@ -118,8 +130,6 @@ Keep ongoing project rules and verification commands in the target's existing pr
 Tooling preferences include Flat Config, selected TypeScript checks, kebab-case source filename linting, separate Prettier formatting, local editor tools and optional hook/commit-check automation. Tailwind projects prefer inline utility classes and canonical-class linting where supported. Workflow preferences include bounded work, Conventional Commits and concise verification evidence. Concrete task planning is separate from adopting instructions.
 
 No tool version or major release is mandated. Preserve the [version and support policy](skills/configure-project-tooling/references/adoption.md#version-and-support-policy): select maintained, secure, compatible stable combinations at adoption, preserve existing constraints and avoid unrelated upgrades. Deployment, branches, workspace names, package managers and commit scopes remain target decisions.
-
-Record the selected skill name and the source repository's full SHA (plus tag if used) in the target README or relevant decision document. Resolve tags to full SHAs. For an uncommitted local source, record its path and that limitation rather than inventing a revision. A source reference is not a package-version requirement or an automatic update mechanism.
 
 ## Maintaining this repository
 

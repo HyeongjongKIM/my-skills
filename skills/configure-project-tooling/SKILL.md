@@ -18,7 +18,7 @@ Apply selected tooling preferences in the target project. Read the [version and 
 
 ## Completion
 
-Report changed files and purposes, exact checks and observed results, checks not run and reasons, exclusions, blockers and next actions. An empty test suite is not behavioral coverage and a successful build alone does not establish runtime behavior. Record the source skill/repository reference, using a full SHA or identifying an uncommitted local path. Leave package manager, deployment, branches, workspace names and commit scopes to the target. Do not commit, create remotes, push or deploy without authorization.
+Report changed files and purposes, exact checks and observed results, checks not run and reasons, exclusions, blockers and next actions. An empty test suite is not behavioral coverage and a successful build alone does not establish runtime behavior. When installing or updating this skill is in scope, follow the [skill documentation and update policy](references/adoption.md#skill-documentation-and-updates). Leave package manager, deployment, branches, workspace names and commit scopes to the target. Do not commit, create remotes, push or deploy without authorization.
 
 The configured target must work independently of this skill remaining installed. Keep actual commands and ongoing tooling decisions in the existing target README, tooling document or applicable AGENTS.md, without links to a project-local skill installation. This does not require introducing new project instructions. Explain that the user may remove a project-local copy or registration after setup and applicable verification, while preserving configurations, dependencies, lockfile and evidence. Do not remove the skill automatically. It can be reused for later tooling changes.
 
